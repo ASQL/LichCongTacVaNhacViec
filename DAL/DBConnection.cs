@@ -10,12 +10,10 @@ namespace DAL
 {
     public class DBConnection
     {
-        private SqlDataAdapter adapter;
-        private DataSet ds;
         private SqlConnection connection;
-        private DBConnection instance;
+        private static DBConnection instance;
 
-        public DBConnection Instance
+        public static DBConnection Instance
         {
             get 
             { 
@@ -29,12 +27,10 @@ namespace DAL
 
         private DBConnection()
         {
-            adapter = new SqlDataAdapter();
-            connection = new SqlConnection("Data Source=KITE\\SQLEXPRESS;Initial Catalog=ClubManagement;Integrated Security=True");
-            ds = new DataSet();
+            connection = new SqlConnection("Data Source=kite\\sqlexpress;Initial Catalog=LichCongTacVaNhacViec;Integrated Security=True");
         }
 
-        private SqlConnection MakeConnection()
+        public SqlConnection OpenConnection()
         {
             if (connection.State == ConnectionState.Closed || connection.State == ConnectionState.Broken)
             {
@@ -47,9 +43,10 @@ namespace DAL
         {
             SqlCommand cmd = new SqlCommand();
             DataTable dt = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter();
             try
             {
-                cmd.Connection = MakeConnection();
+                cmd.Connection = connection;
                 cmd.CommandText = query;
                 cmd.CommandType = cmdType;
                 cmd.Parameters.AddRange(parameters);
@@ -69,11 +66,10 @@ namespace DAL
             SqlCommand cmd = new SqlCommand();
             try
             {
-                cmd.Connection = MakeConnection();
+                cmd.Connection = connection;
                 cmd.CommandText = query;
                 cmd.CommandType = cmdType;
                 cmd.Parameters.AddRange(parameters);
-                adapter.InsertCommand = cmd;
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException e)
@@ -88,18 +84,17 @@ namespace DAL
             SqlCommand cmd = new SqlCommand();
             try
             {
-                cmd.Connection = MakeConnection();
+                cmd.Connection = connection;
                 cmd.CommandText = query;
                 cmd.CommandType = cmdType;
                 cmd.Parameters.AddRange(parameters);
-                adapter.UpdateCommand = cmd;
                 cmd.ExecuteNonQuery();
+                return true;
             }
             catch(SqlException e)
             {
                 throw e;
             }
-            return true;
         }
     }
 }
