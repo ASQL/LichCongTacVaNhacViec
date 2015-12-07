@@ -44,14 +44,14 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmiSignOut = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.lbxInform = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lbxInform = new System.Windows.Forms.ListBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnContainer = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -59,10 +59,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.picbxStaff)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -72,7 +72,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1145, 36);
+            this.panel1.Size = new System.Drawing.Size(996, 36);
             this.panel1.TabIndex = 0;
             // 
             // btnClose
@@ -83,7 +83,7 @@
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(1109, 0);
+            this.btnClose.Location = new System.Drawing.Point(960, 0);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(36, 36);
@@ -102,7 +102,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(1145, 68);
+            this.groupBox1.Size = new System.Drawing.Size(996, 68);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
@@ -124,7 +124,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnExpandedMenu.Controls.Add(this.picbxStaff);
             this.pnExpandedMenu.Controls.Add(this.lbStaff);
-            this.pnExpandedMenu.Location = new System.Drawing.Point(919, 15);
+            this.pnExpandedMenu.Location = new System.Drawing.Point(770, 15);
             this.pnExpandedMenu.Margin = new System.Windows.Forms.Padding(4);
             this.pnExpandedMenu.Name = "pnExpandedMenu";
             this.pnExpandedMenu.Size = new System.Drawing.Size(222, 44);
@@ -212,52 +212,10 @@
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(919, 104);
+            this.panel2.Location = new System.Drawing.Point(770, 104);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(226, 582);
+            this.panel2.Size = new System.Drawing.Size(226, 485);
             this.panel2.TabIndex = 2;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.lbxInform);
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(226, 295);
-            this.panel3.TabIndex = 0;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel4.Controls.Add(this.label1);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(226, 36);
-            this.panel4.TabIndex = 0;
-            // 
-            // lbxInform
-            // 
-            this.lbxInform.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbxInform.FormattingEnabled = true;
-            this.lbxInform.ItemHeight = 16;
-            this.lbxInform.Location = new System.Drawing.Point(0, 36);
-            this.lbxInform.Name = "lbxInform";
-            this.lbxInform.ScrollAlwaysVisible = true;
-            this.lbxInform.Size = new System.Drawing.Size(226, 259);
-            this.lbxInform.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Thông báo";
             // 
             // panel5
             // 
@@ -265,9 +223,9 @@
             this.panel5.Controls.Add(this.listBox2);
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(0, 295);
+            this.panel5.Location = new System.Drawing.Point(0, 243);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(226, 287);
+            this.panel5.Size = new System.Drawing.Size(226, 242);
             this.panel5.TabIndex = 1;
             // 
             // listBox2
@@ -299,12 +257,53 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Thông báo";
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.lbxInform);
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(226, 243);
+            this.panel3.TabIndex = 0;
+            // 
+            // lbxInform
+            // 
+            this.lbxInform.FormattingEnabled = true;
+            this.lbxInform.ItemHeight = 16;
+            this.lbxInform.Location = new System.Drawing.Point(0, 36);
+            this.lbxInform.Name = "lbxInform";
+            this.lbxInform.ScrollAlwaysVisible = true;
+            this.lbxInform.Size = new System.Drawing.Size(226, 68);
+            this.lbxInform.TabIndex = 1;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(226, 36);
+            this.panel4.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Thông báo";
+            // 
             // pnContainer
             // 
             this.pnContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnContainer.Location = new System.Drawing.Point(0, 104);
             this.pnContainer.Name = "pnContainer";
-            this.pnContainer.Size = new System.Drawing.Size(919, 582);
+            this.pnContainer.Size = new System.Drawing.Size(770, 485);
             this.pnContainer.TabIndex = 3;
             // 
             // frmMain
@@ -312,7 +311,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1145, 686);
+            this.ClientSize = new System.Drawing.Size(996, 589);
             this.Controls.Add(this.pnContainer);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.groupBox1);
@@ -331,12 +330,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.picbxStaff)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
