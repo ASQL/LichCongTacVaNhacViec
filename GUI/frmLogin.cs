@@ -53,7 +53,10 @@ namespace GUI
                             }
                             else
                             {
-
+                                frmMain frmMain = new frmMain(staff);
+                                frmMain.Show();
+                                this.Visible = false;
+                                frmMain.FormClosed += frmMain_FormClosed;
                             }
                         }
                         else
@@ -67,6 +70,12 @@ namespace GUI
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        void frmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Visible = true;
+            Reset();
         }
 
         void frmChangePassword_FormClosed(object sender, FormClosedEventArgs e)
