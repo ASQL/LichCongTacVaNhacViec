@@ -49,7 +49,6 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lbxInform = new System.Windows.Forms.ListBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pnContainer = new System.Windows.Forms.Panel();
@@ -260,23 +259,12 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Controls.Add(this.lbxInform);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(226, 243);
             this.panel3.TabIndex = 0;
-            // 
-            // lbxInform
-            // 
-            this.lbxInform.FormattingEnabled = true;
-            this.lbxInform.ItemHeight = 16;
-            this.lbxInform.Location = new System.Drawing.Point(0, 36);
-            this.lbxInform.Name = "lbxInform";
-            this.lbxInform.ScrollAlwaysVisible = true;
-            this.lbxInform.Size = new System.Drawing.Size(226, 68);
-            this.lbxInform.TabIndex = 1;
             // 
             // panel4
             // 
@@ -362,7 +350,6 @@
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListBox lbxInform;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnContainer;
     }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CustomControl;
 
 namespace GUI
 {
@@ -45,6 +46,7 @@ namespace GUI
         private void frmMain_Load(object sender, EventArgs e)
         {
             lbStaff.Text = staff.Name;
+            
         }
     }
 }
