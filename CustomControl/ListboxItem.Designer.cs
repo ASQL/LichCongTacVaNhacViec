@@ -37,10 +37,10 @@
             // lbTitle
             // 
             this.lbTitle.AutoSize = true;
-            this.lbTitle.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitle.Location = new System.Drawing.Point(6, 5);
+            this.lbTitle.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitle.Location = new System.Drawing.Point(6, 4);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(48, 17);
+            this.lbTitle.Size = new System.Drawing.Size(65, 22);
             this.lbTitle.TabIndex = 0;
             this.lbTitle.Text = "Title";
             // 
@@ -48,7 +48,7 @@
             // 
             this.lbTime.AutoSize = true;
             this.lbTime.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTime.Location = new System.Drawing.Point(6, 29);
+            this.lbTime.Location = new System.Drawing.Point(6, 39);
             this.lbTime.Name = "lbTime";
             this.lbTime.Size = new System.Drawing.Size(120, 16);
             this.lbTime.TabIndex = 1;
@@ -58,7 +58,7 @@
             // 
             this.lbDetail.AutoSize = true;
             this.lbDetail.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDetail.Location = new System.Drawing.Point(6, 52);
+            this.lbDetail.Location = new System.Drawing.Point(6, 68);
             this.lbDetail.Name = "lbDetail";
             this.lbDetail.Size = new System.Drawing.Size(72, 16);
             this.lbDetail.TabIndex = 2;
@@ -68,7 +68,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Cyan;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 74);
+            this.panel1.Location = new System.Drawing.Point(0, 91);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(226, 2);
             this.panel1.TabIndex = 3;
@@ -82,7 +82,7 @@
             this.Controls.Add(this.lbTime);
             this.Controls.Add(this.lbTitle);
             this.Name = "ListboxItem";
-            this.Size = new System.Drawing.Size(226, 76);
+            this.Size = new System.Drawing.Size(226, 93);
             this.ResumeLayout(false);
             this.PerformLayout();
 
