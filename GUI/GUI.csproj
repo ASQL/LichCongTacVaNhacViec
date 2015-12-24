@@ -69,6 +69,18 @@
     <Compile Include="frmNotificationManagement.Designer.cs">
       <DependentUpon>frmNotificationManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmStaffManagent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStaffManagent.Designer.cs">
+      <DependentUpon>frmStaffManagent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSubject.Designer.cs">
+      <DependentUpon>frmSubject.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmChangePassword.resx">
@@ -82,6 +94,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNotificationManagement.resx">
       <DependentUpon>frmNotificationManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStaffManagent.resx">
+      <DependentUpon>frmStaffManagent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSubject.resx">
+      <DependentUpon>frmSubject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

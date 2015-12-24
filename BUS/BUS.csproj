@@ -39,8 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CanBoBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaffBUS.cs" />
+    <Compile Include="SubjectBUS.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

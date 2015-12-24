@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\CodeAutomaticID.cs" />
+    <Compile Include="DataAccessLayer\DataAccess.cs" />
     <Compile Include="StaffDAL.cs" />
     <Compile Include="DBConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
