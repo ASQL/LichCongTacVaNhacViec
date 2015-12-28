@@ -20,7 +20,6 @@ namespace GUI
         public frmLogin()
         {
             InitializeComponent();
-            DBConnection.Instance.OpenConnection();
             staffBUS = new StaffBUS();
             
         }
@@ -41,7 +40,7 @@ namespace GUI
                     }
                     else
                     {
-                        Staff staff = staffBUS.getStaffByAccount(txtbAccName.Text);
+                        Staff staff = staffBUS.GetStaffByAccount(txtbAccName.Text);
                         if (staff.Password.Equals(txtbPassword.Text))
                         {
                             if (staff.Password.Equals(staff.Account))
@@ -53,7 +52,7 @@ namespace GUI
                             }
                             else
                             {
-                                frmMain frmMain = new frmMain(staff);
+                                FrmMain frmMain = new FrmMain(staff);
                                 frmMain.Show();
                                 this.Visible = false;
                                 frmMain.FormClosed += frmMain_FormClosed;

@@ -35,7 +35,7 @@ namespace GUI
         {
             try
             {
-                if (staffBUS.updatePassword(staff.Account, txtbNewPass.Text))
+                if (staffBUS.UpdatePassword(staff.Account, txtbNewPass.Text))
                 {
                     DialogResult dialogResult = MessageBox.Show("Đổi mật khẩu thành công!");
                     if (dialogResult == DialogResult.OK)

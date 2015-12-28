@@ -18,7 +18,7 @@ namespace DAL
             return DBConnection.Instance.ExecuteSelectQuery("GetStaffByAccount", sqlParams, CommandType.StoredProcedure);
         }
 
-        public bool updatePassword(String account, String password)
+        public bool UpdatePassword(String account, String password)
         {
             SqlParameter[] sqlParams = new SqlParameter[]{
                 new SqlParameter("@Account",account),
