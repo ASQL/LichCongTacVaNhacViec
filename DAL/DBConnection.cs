@@ -30,7 +30,7 @@ namespace DAL
             connection = new SqlConnection("Data Source=kite\\sqlexpress;Initial Catalog=LichCongTacVaNhacViec;Integrated Security=True");
         }
 
-        public SqlConnection OpenConnection()
+        private SqlConnection OpenConnectionIfNeed()
         {
             if (connection.State == ConnectionState.Closed || connection.State == ConnectionState.Broken)
             {
@@ -46,10 +46,14 @@ namespace DAL
             SqlDataAdapter adapter = new SqlDataAdapter();
             try
             {
+                OpenConnectionIfNeed();
                 cmd.Connection = connection;
                 cmd.CommandText = query;
                 cmd.CommandType = cmdType;
-                cmd.Parameters.AddRange(parameters);
+                if (parameters != null)
+                {
+                    cmd.Parameters.AddRange(parameters);
+                }
                 cmd.ExecuteNonQuery();
                 adapter.SelectCommand = cmd;
                 adapter.Fill(dt);
@@ -66,10 +70,14 @@ namespace DAL
             SqlCommand cmd = new SqlCommand();
             try
             {
+                OpenConnectionIfNeed();
                 cmd.Connection = connection;
                 cmd.CommandText = query;
                 cmd.CommandType = cmdType;
-                cmd.Parameters.AddRange(parameters);
+                if (parameters != null)
+                {
+                    cmd.Parameters.AddRange(parameters);
+                }
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException e)
@@ -84,10 +92,14 @@ namespace DAL
             SqlCommand cmd = new SqlCommand();
             try
             {
+                OpenConnectionIfNeed();
                 cmd.Connection = connection;
                 cmd.CommandText = query;
                 cmd.CommandType = cmdType;
-                cmd.Parameters.AddRange(parameters);
+                if (parameters != null)
+                {
+                    cmd.Parameters.AddRange(parameters);
+                }
                 cmd.ExecuteNonQuery();
                 return true;
             }
