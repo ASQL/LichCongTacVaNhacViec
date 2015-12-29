@@ -29,8 +29,9 @@ namespace BUS
                 notification.Detail = dt.Rows[i][1].ToString();
                 notification.ReceiveTime = Convert.ToDateTime(dt.Rows[i][2].ToString());
                 notification.Deadline = Convert.ToDateTime(dt.Rows[i][3].ToString());
-                notification.Status = Convert.ToInt16(dt.Rows[i][4].ToString());
-                notification.Title = dt.Rows[i][5].ToString();
+                notification.Times = Convert.ToInt16(dt.Rows[i][4].ToString());
+                notification.Status = Convert.ToInt16(dt.Rows[i][5].ToString());
+                notification.Title = dt.Rows[i][6].ToString();
                 notifications.Add(notification);
             }
             return notifications;

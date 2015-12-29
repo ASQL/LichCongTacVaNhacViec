@@ -19,7 +19,7 @@ namespace GUI
         private frmNotificationManagement frmNotificationManagement;
         private NotificationBUS notificationBUS;
         private int timer;
-        private Thread checkNotificationThread;
+        private Thread displayNotificationThread;
 
         public FrmMain()
         {
@@ -52,21 +52,21 @@ namespace GUI
 
         private void tsmiSignOut_Click(object sender, EventArgs e)
         {
-            checkNotificationThread.Abort();
+            displayNotificationThread.Abort();
             this.Close();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            checkNotificationThread.Abort();
+            displayNotificationThread.Abort();
             Application.Exit();
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
             lbStaff.Text = staff.Name;
-            checkNotificationThread = new Thread(CheckNotification);
-            checkNotificationThread.Start();
+            displayNotificationThread = new Thread(CheckNotification);
+            displayNotificationThread.Start();
         }
 
         private void LoadList(List<Notification> notifications)
@@ -87,18 +87,39 @@ namespace GUI
                 if (timer % 300 == 0)
                 {
                     List<Notification> notifications = notificationBUS.GetLastTenRowsByStaffId(staff.ID);
-                    LoadList(notifications);
-                    if (notifications.Count > 0)
+                    SetList(notifications);
+                    if (notifications[0].Status == 1)
                     {
-                        if (notifications[0].Status == 1)
-                        {
-
-                        }
+                        ShowNotificationDialog(notifications[0], 1);
                     }
                 }
                 timer++;
                 Thread.Sleep(1000);
             }
+        }
+
+        delegate void SetListCallBack(List<Notification> notifications);
+
+        private void SetList(List<Notification> notifications)
+        {
+            if (lvNotification.InvokeRequired)
+            {
+                SetListCallBack d = new SetListCallBack(SetList);
+                this.Invoke(d, new object[] { notifications });
+            }
+            else
+            {
+                LoadList(notifications);
+            }
+        }
+
+        private void ShowNotificationDialog(Notification notification, int status)
+        {
+            DialogNotification dialog = new DialogNotification(notification, status);
+            this.Invoke((MethodInvoker)delegate()
+            {
+                dialog.Show();
+            });
         }
     }
 }
