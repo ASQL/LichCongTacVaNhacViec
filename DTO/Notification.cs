@@ -49,13 +49,20 @@ namespace DTO
             set { receiveTime = value; }
         }
 
-        // unit: hour
         private DateTime deadline;
 
         public DateTime Deadline
         {
             get { return deadline; }
             set { deadline = value; }
+        }
+
+        private int times;
+
+        public int Times
+        {
+            get { return times; }
+            set { times = value; }
         }
         
     }
