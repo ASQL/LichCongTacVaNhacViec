@@ -65,47 +65,25 @@ namespace DAL
             return dt;
         }
 
-        public bool ExecuteInsertQuery(String query, SqlParameter[] parameters, CommandType cmdType)
+        public bool ExecuteQuery(String query, SqlParameter[] paramaters, CommandType cmdType)
         {
-            SqlCommand cmd = new SqlCommand();
             try
             {
+                SqlCommand cmd = new SqlCommand();
                 OpenConnectionIfNeed();
                 cmd.Connection = connection;
                 cmd.CommandText = query;
                 cmd.CommandType = cmdType;
-                if (parameters != null)
+                if(paramaters!=null)
                 {
-                    cmd.Parameters.AddRange(parameters);
-                }
-                cmd.ExecuteNonQuery();
-            }
-            catch (SqlException e)
-            {
-                throw e;
-            }
-            return true;
-        }
-
-        public bool ExecuteUpdateQuery(String query, SqlParameter[] parameters, CommandType cmdType)
-        {
-            SqlCommand cmd = new SqlCommand();
-            try
-            {
-                OpenConnectionIfNeed();
-                cmd.Connection = connection;
-                cmd.CommandText = query;
-                cmd.CommandType = cmdType;
-                if (parameters != null)
-                {
-                    cmd.Parameters.AddRange(parameters);
+                    cmd.Parameters.AddRange(paramaters);
                 }
                 cmd.ExecuteNonQuery();
                 return true;
             }
-            catch(SqlException e)
+            catch (Exception ex)
             {
-                throw e;
+                throw ex;
             }
         }
     }

@@ -18,8 +18,12 @@ namespace GUI
         private Staff staff;
         private frmNotificationManagement frmNotificationManagement;
         private NotificationBUS notificationBUS;
-        private int timer;
+        private int timer1;
+        private int timer2;
         private Thread displayNotificationThread;
+        private Thread checkNotificationThread;
+        private List<Notification> notifications;
+        private bool checking;
 
         public FrmMain()
         {
@@ -30,15 +34,17 @@ namespace GUI
         {
             InitializeComponent();
             this.staff = staff;
-            timer = 0;
+            timer1 = 0;
+            timer2 = 0;
             notificationBUS = new NotificationBUS();
+            checking = true;
         }
 
         private void btnNotification_Click(object sender, EventArgs e)
         {
             if (frmNotificationManagement == null)
             {
-                frmNotificationManagement = new frmNotificationManagement();
+                frmNotificationManagement = new frmNotificationManagement(staff);
             }
             frmNotificationManagement.MdiParent = this;
             frmNotificationManagement.Dock = DockStyle.Fill;
@@ -65,7 +71,7 @@ namespace GUI
         private void FrmMain_Load(object sender, EventArgs e)
         {
             lbStaff.Text = staff.Name;
-            displayNotificationThread = new Thread(CheckNotification);
+            displayNotificationThread = new Thread(DisplayNotification);
             displayNotificationThread.Start();
         }
 
@@ -80,20 +86,27 @@ namespace GUI
             }
         }
 
-        private void CheckNotification()
+        private void DisplayNotification()
         {
-            while (timer >= 0)
+            while (timer1 >= 0)
             {
-                if (timer % 300 == 0)
+                if (timer1 % 300 == 0)
                 {
-                    List<Notification> notifications = notificationBUS.GetLastTenRowsByStaffId(staff.ID);
+                    if (notifications != null)
+                    {
+                        notifications.RemoveRange(0, notifications.Count);
+                    }
+                    else
+                    {
+                        notifications = notificationBUS.GetLastTenRowsByStaffId(staff.ID);
+                    }
                     SetList(notifications);
                     if (notifications[0].Status == 1)
                     {
                         ShowNotificationDialog(notifications[0], 1);
                     }
                 }
-                timer++;
+                timer1++;
                 Thread.Sleep(1000);
             }
         }
@@ -120,6 +133,34 @@ namespace GUI
             {
                 dialog.Show();
             });
+        }
+
+        private void CheckNotification()
+        {
+            while (checking)
+            {
+                DateTime today = DateTime.Today;
+                Notification notification = notificationBUS.GetUnrepliedNotificationByStaffId(staff.ID);
+                if (today > notification.Deadline)
+                {
+                    if (notification.Times == 0)
+                    {
+                        notification.Status = 4;
+                    }
+                    else
+                    {
+                        notification.ReceiveTime = DateTime.Today;
+                        notification.Deadline = notification.Deadline.AddMinutes(15);
+                        notification.Times--;
+                        DialogNotification dialog = new DialogNotification(notification);
+                        this.Invoke((MethodInvoker)delegate()
+                        {
+                            dialog.Show();
+                        });
+                    }
+                    notificationBUS.Update(notification);
+                }
+            }
         }
     }
 }

@@ -18,6 +18,16 @@ namespace BUS
             notificationDAL = new NotificationDAL();
         }
 
+        public bool Update(Notification notification)
+        {
+            return notificationDAL.Update(notification);
+        }
+
+        public bool Delete(String notificationId)
+        {
+            return notificationDAL.Delete(notificationId);
+        }
+
         public List<Notification> GetLastTenRowsByStaffId(String id)
         {
             List<Notification> notifications = new List<Notification>();
@@ -35,6 +45,25 @@ namespace BUS
                 notifications.Add(notification);
             }
             return notifications;
+        }
+
+        public Notification GetUnrepliedNotificationByStaffId(String id)
+        {
+            Notification notification = new Notification();
+            DataTable dt = notificationDAL.GetUnrepliedNotificationByStaffId(id);
+            notification.ID = dt.Rows[0][0].ToString();
+            notification.Detail = dt.Rows[0][1].ToString();
+            notification.ReceiveTime = Convert.ToDateTime(dt.Rows[0][2].ToString());
+            notification.Deadline = Convert.ToDateTime(dt.Rows[0][3].ToString());
+            notification.Times = Convert.ToInt16(dt.Rows[0][4].ToString());
+            notification.Status = Convert.ToInt16(dt.Rows[0][5].ToString());
+            notification.Title = dt.Rows[0][6].ToString();
+            return notification;
+        }
+
+        public DataTable GetNotificationByStaffId(String id)
+        {
+            return notificationDAL.GetNotificationByStaffId(id);
         }
     }
 }

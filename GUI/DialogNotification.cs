@@ -21,6 +21,24 @@ namespace GUI
             InitializeComponent();
         }
 
+        public DialogNotification(Notification notification)
+        {
+            InitializeComponent();
+            this.notification = notification;
+            switch(notification.Status)
+            {
+                case 1:
+                    status = 1;
+                    break;
+                case 2:
+                    status = 2;
+                    break;
+                default:
+                    status = 2;
+                    break;
+            }
+        }
+
         public DialogNotification(Notification notification, int status)
         {
             InitializeComponent();
