@@ -36,6 +36,7 @@
             this.btnNotification = new System.Windows.Forms.Button();
             this.btnSchedule = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.thôngTinCáNhânToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,7 +48,6 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel5 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.pnExpandedMenu.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -151,6 +151,17 @@
             this.panel1.Size = new System.Drawing.Size(1250, 36);
             this.panel1.TabIndex = 3;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label1.Location = new System.Drawing.Point(3, 2);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(141, 33);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Yue\'s Office";
+            // 
             // btnClose
             // 
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
@@ -212,6 +223,8 @@
             this.columnHeader1,
             this.columnHeader2});
             this.lvNotification.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvNotification.FullRowSelect = true;
+            this.lvNotification.GridLines = true;
             this.lvNotification.Location = new System.Drawing.Point(0, 35);
             this.lvNotification.Name = "lvNotification";
             this.lvNotification.Size = new System.Drawing.Size(310, 489);
@@ -247,17 +260,6 @@
             this.label2.Size = new System.Drawing.Size(114, 33);
             this.label2.TabIndex = 0;
             this.label2.Text = "Thông báo";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label1.Location = new System.Drawing.Point(3, 2);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 33);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Yue\'s Office";
             // 
             // FrmMain
             // 

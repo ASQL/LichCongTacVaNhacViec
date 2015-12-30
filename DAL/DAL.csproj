@@ -44,6 +44,12 @@
     <Compile Include="DBConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{dae7e279-634c-4ee6-b407-8887cf5caa51}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

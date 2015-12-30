@@ -58,9 +58,9 @@
             // dtpFilter
             // 
             this.dtpFilter.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFilter.Location = new System.Drawing.Point(159, 85);
+            this.dtpFilter.Location = new System.Drawing.Point(159, 86);
             this.dtpFilter.Name = "dtpFilter";
-            this.dtpFilter.Size = new System.Drawing.Size(108, 22);
+            this.dtpFilter.Size = new System.Drawing.Size(109, 22);
             this.dtpFilter.TabIndex = 5;
             this.dtpFilter.Visible = false;
             // 
