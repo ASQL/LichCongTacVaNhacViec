@@ -88,7 +88,7 @@ namespace DTO
             set { type = value; }
         }
 
-        private String subject;
+        private String subject; // bo mon
 
         public String Subject
         {
@@ -96,7 +96,7 @@ namespace DTO
             set { subject = value; }
         }
 
-        private String faculty;
+        private String faculty; // khoa
 
         public String Faculty
         {

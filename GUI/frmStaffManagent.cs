@@ -1,5 +1,5 @@
 ﻿using BUS;
-using DAL.Common;
+using DAL;
 using DTO;
 using System;
 using System.Collections.Generic;
@@ -20,7 +20,7 @@ namespace GUI
         {
             InitializeComponent();
         }
-        CanBoBUS controllerCB = new CanBoBUS();
+        StaffBUS controllerCB = new StaffBUS();
         private void label7_Click(object sender, EventArgs e)
         {
 
@@ -54,23 +54,24 @@ namespace GUI
             txtMaCanBo.Enabled = false;
             cboLTaiKhoan.Enabled = true;
             txtMaCanBo.Text = CodeAutomaticID.NextID(controllerCB.get(), "CB");
+            cboLTaiKhoan.DataSource = controllerCB.LoaiTaiKhoan();
+            cboLTaiKhoan.DisplayMember = "TenLoai";
+            cboLTaiKhoan.ValueMember = "MaLoai";
         }
-        private CanBo Staff()
+        private Staff StaffCB()
         {
-            CanBo cb = new CanBo();
-            cb.MaCanBo = txtMaCanBo.Text;
-            cb.TenCanBo = txtTenCanBo.Text;
-            cb.GioiTinh = cboGioiTinh.Text;
-            cb.NgaySinh = dtpNgaySinh.Value;
+            Staff cb = new Staff();
+            cb.ID = txtMaCanBo.Text;
+            cb.Name = txtTenCanBo.Text;
+            cb.Sex = cboGioiTinh.Text;
+            cb.Birthday = dtpNgaySinh.Value;
             cb.Email = txtEmail.Text;
-            cb.SDT = txtSDT.Text;
-            cb.DiaChi = txtdiachi.Text;
-            cb.MaBoMon = cboBoMon.SelectedValue.ToString();
-            cb.LoaiTaiKhoan = cboLTaiKhoan.SelectedValue.ToString();
+            cb.PhoneNumber = txtSDT.Text;
+            cb.Address = txtdiachi.Text;
             return cb;
 
         }
-        private bool KiemTra(CanBo cb)
+        private bool KiemTra(Staff cb)
         {
             if(txtMaCanBo.Text.Equals(""))
             {
@@ -97,10 +98,13 @@ namespace GUI
         
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            CanBo cb = Staff();
-            if(KiemTra(cb))
+            Staff cb = StaffCB();
+            string SubjectID = cboBoMon.SelectedValue.ToString();
+            string FacultyID = cboLTaiKhoan.SelectedValue.ToString();
+            if (KiemTra(cb))
             {
-                bool addcanbo = controllerCB.Add(cb);
+
+                bool addcanbo = controllerCB.Add(cb,SubjectID,FacultyID);
                 if (addcanbo)
                 {
                     MessageBox.Show("Thêm mới thành công !", "Thông báo");
@@ -138,10 +142,12 @@ namespace GUI
         private void btnSua_Click(object sender, EventArgs e)
         {
             
-            CanBo cb = Staff();
+            Staff cb = StaffCB();
+            string SubjectID = cboBoMon.SelectedValue.ToString();
+            string FacultyID = cboLTaiKhoan.SelectedValue.ToString();
             if (KiemTra(cb))
             {
-                bool editcanbo = controllerCB.Edit(cb);
+                bool editcanbo = controllerCB.Edit(cb,SubjectID,FacultyID);
                 if (editcanbo)
                 {
                     MessageBox.Show("Sửa thành công !", "Thông báo");
@@ -160,7 +166,7 @@ namespace GUI
             if(MessageBox.Show("Bạn có muốn xóa cán bộ: " +txtTenCanBo.Text +" không ?","Hỏi",MessageBoxButtons.YesNo
                 ,MessageBoxIcon.Question)==DialogResult.Yes)
             {
-                CanBo cb = Staff();
+                Staff cb = StaffCB();
                 if (KiemTra(cb))
                 {
                     bool deletecb = controllerCB.Delete(cb);
