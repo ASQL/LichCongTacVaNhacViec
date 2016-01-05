@@ -27,7 +27,7 @@ namespace DAL
 
         private DBConnection()
         {
-            connection = new SqlConnection("Data Source=kite\\sqlexpress;Initial Catalog=LichCongTacVaNhacViec;Integrated Security=True");
+            connection = new SqlConnection("Data Source=kite\\sqlexpress;Initial Catalog=LichCongTacVaNhacViec;Integrated Security=True; MultipleActiveResultSets=True");
         }
 
         private SqlConnection OpenConnectionIfNeed()

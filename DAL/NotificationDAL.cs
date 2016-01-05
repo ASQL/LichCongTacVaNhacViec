@@ -11,9 +11,17 @@ namespace DAL
 {
     public class NotificationDAL
     {
-        public bool Insert()
+        public bool Insert(String staffId, String title, String detail, DateTime sendTime, DateTime deadline, int times)
         {
-            return true;
+            SqlParameter[] parameters = new SqlParameter[]{
+                new SqlParameter("@MaCanBo",staffId),
+                new SqlParameter("@TieuDe",title),
+                new SqlParameter("@NoiDung",detail),
+                new SqlParameter("@ThoiGianGui",sendTime),
+                new SqlParameter("@ThoiHan",deadline),
+                new SqlParameter("@SoLan",times)
+            };
+            return DBConnection.Instance.ExecuteQuery("SendNotification", parameters, CommandType.StoredProcedure); 
         }
 
         public bool Update(Notification notification)

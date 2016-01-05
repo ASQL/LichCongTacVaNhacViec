@@ -59,12 +59,14 @@ namespace GUI
         private void tsmiSignOut_Click(object sender, EventArgs e)
         {
             displayNotificationThread.Abort();
+            checkNotificationThread.Abort();
             this.Close();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             displayNotificationThread.Abort();
+            checkNotificationThread.Abort();
             Application.Exit();
         }
 
@@ -73,6 +75,8 @@ namespace GUI
             lbStaff.Text = staff.Name;
             displayNotificationThread = new Thread(DisplayNotification);
             displayNotificationThread.Start();
+            checkNotificationThread = new Thread(CheckNotification);
+            checkNotificationThread.Start();
         }
 
         private void LoadList(List<Notification> notifications)
@@ -100,10 +104,13 @@ namespace GUI
                     {
                         notifications = notificationBUS.GetLastTenRowsByStaffId(staff.ID);
                     }
-                    SetList(notifications);
-                    if (notifications[0].Status == 1)
+                    if (notifications.Count > 0)
                     {
-                        ShowNotificationDialog(notifications[0], 1);
+                        SetList(notifications);
+                        if (notifications[0].Status == 1)
+                        {
+                            ShowNotificationDialog(notifications[0], 1);
+                        }
                     }
                 }
                 timer1++;
@@ -141,25 +148,35 @@ namespace GUI
             {
                 DateTime today = DateTime.Today;
                 Notification notification = notificationBUS.GetUnrepliedNotificationByStaffId(staff.ID);
-                if (today > notification.Deadline)
+                if (notification.ID != "")
                 {
-                    if (notification.Times == 0)
+                    if (today.CompareTo(notification.Deadline) < 0)
                     {
-                        notification.Status = 4;
-                    }
-                    else
-                    {
-                        notification.ReceiveTime = DateTime.Today;
-                        notification.Deadline = notification.Deadline.AddMinutes(15);
-                        notification.Times--;
-                        DialogNotification dialog = new DialogNotification(notification);
-                        this.Invoke((MethodInvoker)delegate()
+                        if (notification.Times == 0)
                         {
-                            dialog.Show();
-                        });
+                            notification.Status = 4;
+                            if (staff.Type != 1 && staff.Type != 2)
+                            {
+                                String detail = "Cán bộ " + staff.Name + " chưa trả lời thư!";
+                                DateTime deadline = DateTime.Today.AddHours(3);
+                                notificationBUS.Insert(staff.ID, "Nhắc nhở", detail, DateTime.Today, deadline, 2);
+                            }
+                        }
+                        else
+                        {
+                            notification.ReceiveTime = DateTime.Today;
+                            notification.Deadline = notification.Deadline.AddMinutes(15);
+                            notification.Times--;
+                            DialogNotification dialog = new DialogNotification(notification);
+                            this.Invoke((MethodInvoker)delegate()
+                            {
+                                dialog.Show();
+                            });
+                        }
+                        notificationBUS.Update(notification);
                     }
-                    notificationBUS.Update(notification);
                 }
+                Thread.Sleep(30000);
             }
         }
     }

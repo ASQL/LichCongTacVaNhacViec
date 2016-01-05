@@ -18,6 +18,11 @@ namespace BUS
             notificationDAL = new NotificationDAL();
         }
 
+        public bool  Insert(String staffId, String title, String detail, DateTime sendTime, DateTime deadline, int times)
+        {
+            return notificationDAL.Insert(staffId, title, detail, sendTime, deadline, times);
+        }
+
         public bool Update(Notification notification)
         {
             return notificationDAL.Update(notification);
@@ -51,13 +56,16 @@ namespace BUS
         {
             Notification notification = new Notification();
             DataTable dt = notificationDAL.GetUnrepliedNotificationByStaffId(id);
-            notification.ID = dt.Rows[0][0].ToString();
-            notification.Detail = dt.Rows[0][1].ToString();
-            notification.ReceiveTime = Convert.ToDateTime(dt.Rows[0][2].ToString());
-            notification.Deadline = Convert.ToDateTime(dt.Rows[0][3].ToString());
-            notification.Times = Convert.ToInt16(dt.Rows[0][4].ToString());
-            notification.Status = Convert.ToInt16(dt.Rows[0][5].ToString());
-            notification.Title = dt.Rows[0][6].ToString();
+            if (dt.Rows.Count > 0)
+            {
+                notification.ID = dt.Rows[0][0].ToString();
+                notification.Detail = dt.Rows[0][1].ToString();
+                notification.ReceiveTime = Convert.ToDateTime(dt.Rows[0][2].ToString());
+                notification.Deadline = Convert.ToDateTime(dt.Rows[0][3].ToString());
+                notification.Times = Convert.ToInt16(dt.Rows[0][4].ToString());
+                notification.Status = Convert.ToInt16(dt.Rows[0][5].ToString());
+                notification.Title = dt.Rows[0][6].ToString();
+            }
             return notification;
         }
 
