@@ -139,6 +139,7 @@
             this.btnAccept.TabIndex = 2;
             this.btnAccept.Text = "Chấp nhận";
             this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // btnReject
             // 
@@ -149,6 +150,7 @@
             this.btnReject.TabIndex = 3;
             this.btnReject.Text = "Từ chối";
             this.btnReject.UseVisualStyleBackColor = true;
+            this.btnReject.Click += new System.EventHandler(this.btnReject_Click);
             // 
             // panel3
             // 
@@ -178,6 +180,7 @@
             this.btnOk.Text = "Ok";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Visible = false;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // DialogNotification
             // 

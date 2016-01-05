@@ -1,4 +1,5 @@
-﻿using DTO;
+﻿using BUS;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace GUI
     public partial class DialogNotification : Form
     {
         private Notification notification;
+        private NotificationBUS notificationBUS;
         private int status;
 
         public DialogNotification()
@@ -25,6 +27,7 @@ namespace GUI
         {
             InitializeComponent();
             this.notification = notification;
+            notificationBUS = new NotificationBUS();
             switch(notification.Status)
             {
                 case 1:
@@ -68,6 +71,27 @@ namespace GUI
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            notification.Status = 3;
+            notificationBUS.Update(notification);
+            this.Close();
+        }
+
+        private void btnReject_Click(object sender, EventArgs e)
+        {
+            notification.Status = 3;
+            notificationBUS.Update(notification);
+            this.Close();
+        }
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            notification.Status = 3;
+            notificationBUS.Update(notification);
             this.Close();
         }
     }
