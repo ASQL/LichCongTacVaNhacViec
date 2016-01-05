@@ -1,5 +1,5 @@
 ﻿using BUS;
-using DAL.Common;
+using DAL;
 using DTO;
 using System;
 using System.Collections.Generic;
@@ -27,11 +27,8 @@ namespace GUI
             cboMaKhoa.DisplayMember = "TenKhoa";
             cboMaKhoa.ValueMember = "MaKhoa";
 
-            // Hiển thị cán bộ thuộc bộ môn
-            cboTruongBoMon.DataSource = controllerBM.GetCanBo();
-            cboTruongBoMon.DisplayMember = "TenCanBo";
-            cboTruongBoMon.ValueMember = "MaCanBo";
-        
+
+
 
             dtgr.DataSource = controllerBM.HienThi();
         }
@@ -40,18 +37,33 @@ namespace GUI
         {
             txtMaBoMon.Enabled = false;
             txtMaBoMon.Text = CodeAutomaticID.NextID(controllerBM.get(), "BM");
+            // Hiển thị cán bộ thuộc bộ môn
+            cboTruongBoMon.DataSource = controllerBM.GetCanBo();
+            cboTruongBoMon.DisplayMember = "TenCanBo";
+            cboTruongBoMon.ValueMember = "MaCanBo";
         }
 
         private void dtgr_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtMaBoMon.Text= dtgr.CurrentRow.Cells["MaBoMon"].Value.ToString();
+            txtMaBoMon.Text = dtgr.CurrentRow.Cells["MaBoMon"].Value.ToString();
+            txtTenBoMon.Text = dtgr.CurrentRow.Cells["TenBoMon"].Value.ToString();
             string mabomon = txtMaBoMon.Text;
-            cboTruongBoMon.DataSource = controllerBM.GetCanBoBM(mabomon);
-            cboTruongBoMon.DisplayMember = "TenCanBo";
-            cboTruongBoMon.ValueMember = "MaCanBo";
-            txtTenBoMon.Text= dtgr.CurrentRow.Cells["TenBoMon"].Value.ToString();
-            cboTruongBoMon.SelectedValue= dtgr.CurrentRow.Cells["MaTruongBoMon"].Value.ToString();
-            cboMaKhoa.SelectedValue= dtgr.CurrentRow.Cells["MaKhoa"].Value.ToString();
+            DataTable dt = controllerBM.GetCanBoBM(mabomon);
+            if (dt.Rows.Count > 0)
+            {
+                cboTruongBoMon.DataSource = controllerBM.GetCanBoBM(mabomon);
+                cboTruongBoMon.DisplayMember = "TenCanBo";
+                cboTruongBoMon.ValueMember = "MaCanBo";
+                cboTruongBoMon.SelectedValue = dtgr.CurrentRow.Cells["MaTruongBoMon"].Value.ToString();
+                btnSua.Enabled = true;
+            }
+            else
+            {
+                cboTruongBoMon.SelectedValue = " ";
+                btnSua.Enabled = false;
+
+            }
+            cboMaKhoa.SelectedValue = dtgr.CurrentRow.Cells["MaKhoa"].Value.ToString();
 
         }
         private Subject BoMon()
@@ -59,18 +71,18 @@ namespace GUI
             Subject bm = new Subject();
             bm.MaBoMon = txtMaBoMon.Text;
             bm.TenBoMon = txtTenBoMon.Text;
-            bm.MaTruongBoMon = cboTruongBoMon.SelectedValue.ToString();
-            bm.MaKhoa = cboMaKhoa.SelectedValue.ToString();
+            bm.MaTruongBoMon = string.IsNullOrEmpty(cboTruongBoMon.Text) ? " " : cboTruongBoMon.SelectedValue.ToString();
+            bm.MaKhoa = string.IsNullOrEmpty(cboMaKhoa.Text) ? " " : cboMaKhoa.SelectedValue.ToString();
             return bm;
         }
         private bool Kiemtra()
         {
-            if(txtMaBoMon.Text.Equals(""))
+            if (txtMaBoMon.Text.Equals(""))
             {
                 MessageBox.Show("Mã bộ môn còn trống");
                 return false;
             }
-            if(txtTenBoMon.Text.Equals(""))
+            if (txtTenBoMon.Text.Equals(""))
             {
                 MessageBox.Show("Tên bộ môn còn trống");
                 return false;

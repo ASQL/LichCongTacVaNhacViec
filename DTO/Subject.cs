@@ -18,7 +18,7 @@ namespace DTO
 
         }
 
-        public Subject(string _mabm,string _TenBoMon,string _MaTruongBoMon,string _MaKhoa)
+        public Subject(string _mabm, string _TenBoMon, string _MaTruongBoMon, string _MaKhoa)
         {
             MaBoMon = _mabm;
             TenBoMon = _TenBoMon;
