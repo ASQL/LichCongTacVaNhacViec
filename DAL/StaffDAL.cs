@@ -24,7 +24,7 @@ namespace DAL
                 new SqlParameter("@Account",account),
                 new SqlParameter("@Password",password)
             };
-            return DBConnection.Instance.ExecuteUpdateQuery("update TaiKhoan set MatKhau=@Password where TenTaiKhoan=@Account", sqlParams, CommandType.Text);
+            return DBConnection.Instance.ExecuteQuery("update TaiKhoan set MatKhau=@Password where TenTaiKhoan=@Account", sqlParams, CommandType.Text);
         }
     }
 }
