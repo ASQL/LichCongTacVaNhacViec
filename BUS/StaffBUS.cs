@@ -18,7 +18,7 @@ namespace BUS
             staffDAL = new StaffDAL();
         }
 
-        public Staff getStaffByAccount(String account)
+        public Staff GetStaffByAccount(String account)
         {
             try
             {
@@ -72,9 +72,9 @@ namespace BUS
             }
         }
 
-        public bool updatePassword(String account, String password)
+        public bool UpdatePassword(String account, String password)
         {
-            return staffDAL.updatePassword(account, password);
+            return staffDAL.UpdatePassword(account, password);
         }
     }
 }

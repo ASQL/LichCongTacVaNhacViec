@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtpFilter = new System.Windows.Forms.DateTimePicker();
             this.btnFind = new System.Windows.Forms.Button();
             this.txtbFilter = new System.Windows.Forms.TextBox();
             this.cbxFilter = new System.Windows.Forms.ComboBox();
             this.lbFilter = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dtpFilter = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,11 +55,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tìm kiếm";
             // 
+            // dtpFilter
+            // 
+            this.dtpFilter.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFilter.Location = new System.Drawing.Point(159, 86);
+            this.dtpFilter.Name = "dtpFilter";
+            this.dtpFilter.Size = new System.Drawing.Size(109, 22);
+            this.dtpFilter.TabIndex = 5;
+            this.dtpFilter.Visible = false;
+            // 
             // btnFind
             // 
+            this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFind.Location = new System.Drawing.Point(122, 125);
             this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(85, 40);
+            this.btnFind.Size = new System.Drawing.Size(85, 30);
             this.btnFind.TabIndex = 4;
             this.btnFind.Text = "Tìm";
             this.btnFind.UseVisualStyleBackColor = true;
@@ -98,15 +108,6 @@
             this.label1.Size = new System.Drawing.Size(112, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tìm kiếm theo";
-            // 
-            // dtpFilter
-            // 
-            this.dtpFilter.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFilter.Location = new System.Drawing.Point(159, 85);
-            this.dtpFilter.Name = "dtpFilter";
-            this.dtpFilter.Size = new System.Drawing.Size(108, 22);
-            this.dtpFilter.TabIndex = 5;
-            this.dtpFilter.Visible = false;
             // 
             // SearchBox
             // 
