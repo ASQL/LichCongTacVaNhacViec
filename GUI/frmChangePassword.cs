@@ -40,6 +40,7 @@ namespace GUI
                     DialogResult dialogResult = MessageBox.Show("Đổi mật khẩu thành công!");
                     if (dialogResult == DialogResult.OK)
                     {
+                        FrmMain.flag = 1;
                         this.Close();
                     }
                 }
@@ -56,6 +57,7 @@ namespace GUI
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            FrmMain.flag = 0;
             this.Close();
         }
 
