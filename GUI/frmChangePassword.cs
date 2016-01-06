@@ -12,19 +12,19 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class frmChangePassword : Form
+    public partial class FrmChangePassword : Form
     {
         private StaffBUS staffBUS;
         private Staff staff;
 
-        public frmChangePassword()
+        public FrmChangePassword()
         {
             InitializeComponent();
             staff = new Staff();
             staffBUS = new StaffBUS();
         }
 
-        public frmChangePassword(Staff staff)
+        public FrmChangePassword(Staff staff)
         {
             InitializeComponent();
             this.staff = staff;

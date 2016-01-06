@@ -16,14 +16,18 @@ namespace GUI
     public partial class FrmMain : Form
     {
         private Staff staff;
-        private frmNotificationManagement frmNotificationManagement;
         private NotificationBUS notificationBUS;
         private int timer1;
-        private int timer2;
         private Thread displayNotificationThread;
         private Thread checkNotificationThread;
         private List<Notification> notifications;
+
+        private FrmNotificationManagement frmNotificationManagement;
+        private FrmSubjectManagement frmSubjectManagement;
+        private FrmStaffManagement frmStaffManagement;
+
         private bool checking;
+        private int flag;
 
         public FrmMain()
         {
@@ -35,7 +39,6 @@ namespace GUI
             InitializeComponent();
             this.staff = staff;
             timer1 = 0;
-            timer2 = 0;
             notificationBUS = new NotificationBUS();
             checking = true;
         }
@@ -44,11 +47,17 @@ namespace GUI
         {
             if (frmNotificationManagement == null)
             {
-                frmNotificationManagement = new frmNotificationManagement(staff);
+                frmNotificationManagement = new FrmNotificationManagement(staff);
+                frmNotificationManagement.MdiParent = this;
+                frmNotificationManagement.Dock = DockStyle.Fill;
+                frmNotificationManagement.Show();
             }
-            frmNotificationManagement.MdiParent = this;
-            frmNotificationManagement.Dock = DockStyle.Fill;
-            frmNotificationManagement.Show();
+            else
+            {
+                frmNotificationManagement.BringToFront();
+            }
+            SetAllButtonToNormal();
+            btnNotification.BackColor = Color.Turquoise;
         }
 
         private void lbStaff_Click(object sender, EventArgs e)
@@ -174,10 +183,78 @@ namespace GUI
                             });
                         }
                         notificationBUS.Update(notification);
+                        if (notifications != null)
+                        {
+                            notifications.RemoveRange(0, notifications.Count);
+                        }
+                        else
+                        {
+                            notifications = notificationBUS.GetLastTenRowsByStaffId(staff.ID);
+                        }
+                        SetList(notifications);
                     }
                 }
                 Thread.Sleep(30000);
             }
+        }
+
+        private void lvNotification_DoubleClick(object sender, EventArgs e)
+        {
+            DialogNotification dialog = new DialogNotification(notifications[lvNotification.SelectedIndices[0]]);
+            dialog.Show();
+        }
+
+        private void btnSchedule_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnStaff_Click(object sender, EventArgs e)
+        {
+            if (frmStaffManagement == null)
+            {
+                frmStaffManagement = new FrmStaffManagement(staff);
+                frmStaffManagement.MdiParent = this;
+                frmStaffManagement.Dock = DockStyle.Fill;
+                frmStaffManagement.Show();
+            }
+            else
+            {
+                frmStaffManagement.BringToFront();
+            }
+            SetAllButtonToNormal();
+            btnStaff.BackColor = Color.Turquoise;
+        }
+
+        private void btnSubject_Click(object sender, EventArgs e)
+        {
+            if (frmSubjectManagement == null)
+            {
+                frmSubjectManagement = new FrmSubjectManagement(staff);
+                frmSubjectManagement.MdiParent = this;
+                frmSubjectManagement.Dock = DockStyle.Fill;
+                frmSubjectManagement.Show();
+            }
+            else
+            {
+                frmSubjectManagement.BringToFront();
+            }
+            SetAllButtonToNormal();
+            btnSubject.BackColor = Color.Turquoise;
+        }
+
+        private void btnFaculty_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SetAllButtonToNormal()
+        {
+            btnSchedule.BackColor = Color.Transparent;
+            btnNotification.BackColor = Color.Transparent;
+            btnStaff.BackColor = Color.Transparent;
+            btnSubject.BackColor = Color.Transparent;
+            btnFaculty.BackColor = Color.Transparent;
         }
     }
 }

@@ -13,22 +13,29 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class frmSubject : Form
+    public partial class FrmSubjectManagement : Form
     {
-        public frmSubject()
+        private SubjectBUS controllerBM = new SubjectBUS();
+        private Staff staff;
+
+        public FrmSubjectManagement()
         {
             InitializeComponent();
+            staff=new Staff();
         }
-        SubjectBUS controllerBM = new SubjectBUS();
+
+        public FrmSubjectManagement(Staff staff)
+        {
+            InitializeComponent();
+            this.staff = staff;
+        }
+
         private void frmSubject_Load(object sender, EventArgs e)
         {
 
             cboMaKhoa.DataSource = controllerBM.GetKhoa();
             cboMaKhoa.DisplayMember = "TenKhoa";
             cboMaKhoa.ValueMember = "MaKhoa";
-
-
-
 
             dtgr.DataSource = controllerBM.HienThi();
         }

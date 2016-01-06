@@ -12,19 +12,19 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class frmNotificationManagement : Form
+    public partial class FrmNotificationManagement : Form
     {
         private NotificationBUS notificationBUS;
         private Staff staff;
         private DataTable notificationTable;
         private DataView notificationView;
 
-        public frmNotificationManagement()
+        public FrmNotificationManagement()
         {
             InitializeComponent();
         }
 
-        public frmNotificationManagement(Staff staff)
+        public FrmNotificationManagement(Staff staff)
         {
             InitializeComponent();
             this.staff = staff;
