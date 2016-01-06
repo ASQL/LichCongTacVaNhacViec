@@ -27,11 +27,12 @@ namespace GUI
         private FrmStaffManagement frmStaffManagement;
 
         private bool checking;
-        private int flag;
+        public static int flag;
 
         public FrmMain()
         {
             InitializeComponent();
+            flag = 0;
         }
 
         public FrmMain(Staff staff)
@@ -41,6 +42,7 @@ namespace GUI
             timer1 = 0;
             notificationBUS = new NotificationBUS();
             checking = true;
+            flag = 0;
         }
 
         private void btnNotification_Click(object sender, EventArgs e)
@@ -255,6 +257,40 @@ namespace GUI
             btnStaff.BackColor = Color.Transparent;
             btnSubject.BackColor = Color.Transparent;
             btnFaculty.BackColor = Color.Transparent;
+        }
+
+        private void tsmiChangePassword_Click(object sender, EventArgs e)
+        {
+            FrmChangePassword frmChangePassword = new FrmChangePassword(staff);
+            frmChangePassword.Show();
+            this.Enabled = false;
+            frmChangePassword.FormClosed += frmChangePassword_FormClosed;
+        }
+
+        void frmChangePassword_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            switch(flag)
+            {
+                case 0:
+                    this.Enabled = true;
+                    break;
+                case 1:
+                    this.Close();
+                    break;
+            }
+        }
+
+        private void tsmiPersonalInformation_Click(object sender, EventArgs e)
+        {
+            FrmPersonalInformation frmPersonalInformation = new FrmPersonalInformation(staff);
+            this.Enabled = false;
+            frmPersonalInformation.Show();
+            frmPersonalInformation.FormClosed += frmPersonalInformation_FormClosed;
+        }
+
+        void frmPersonalInformation_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Enabled = true;
         }
     }
 }
