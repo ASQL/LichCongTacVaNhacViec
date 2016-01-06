@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class frmNotificationManagement
+    partial class FrmNotificationManagement
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvNotification = new System.Windows.Forms.DataGridView();
             this.colTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,29 +54,28 @@
             // 
             this.dgvNotification.AllowUserToAddRows = false;
             this.dgvNotification.AllowUserToDeleteRows = false;
-            this.dgvNotification.BackgroundColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNotification.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNotification.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvNotification.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNotification.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colTitle,
             this.colDetail,
             this.colTime,
             this.colDeadline});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvNotification.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvNotification.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvNotification.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgvNotification.GridColor = System.Drawing.Color.Gray;
             this.dgvNotification.Location = new System.Drawing.Point(0, 0);
@@ -126,7 +125,7 @@
             this.btnRead.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
             this.btnRead.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRead.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRead.ForeColor = System.Drawing.Color.White;
+            this.btnRead.ForeColor = System.Drawing.Color.Black;
             this.btnRead.Location = new System.Drawing.Point(82, 422);
             this.btnRead.Name = "btnRead";
             this.btnRead.Size = new System.Drawing.Size(107, 39);
@@ -143,7 +142,7 @@
             this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.ForeColor = System.Drawing.Color.Black;
             this.btnDelete.Location = new System.Drawing.Point(258, 422);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(107, 39);
@@ -249,7 +248,7 @@
             this.btnRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.ForeColor = System.Drawing.Color.Black;
             this.btnRefresh.Location = new System.Drawing.Point(432, 422);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(107, 39);
@@ -258,11 +257,11 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // frmNotificationManagement
+            // FrmNotificationManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DimGray;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(933, 524);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.groupBox1);
@@ -271,7 +270,7 @@
             this.Controls.Add(this.dgvNotification);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmNotificationManagement";
+            this.Name = "FrmNotificationManagement";
             this.Text = "frmNotificationManagement";
             this.Load += new System.EventHandler(this.frmNotificationManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNotification)).EndInit();

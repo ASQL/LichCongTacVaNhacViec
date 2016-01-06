@@ -13,17 +13,21 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class frmStaffManagent : Form
+    public partial class FrmStaffManagement : Form
     {
+        private StaffBUS controllerCB = new StaffBUS();
+        private Staff staff;
 
-        public frmStaffManagent()
+        public FrmStaffManagement()
         {
             InitializeComponent();
+            staff = new Staff();
         }
-        StaffBUS controllerCB = new StaffBUS();
-        private void label7_Click(object sender, EventArgs e)
-        {
 
+        public FrmStaffManagement(Staff staff)
+        {
+            InitializeComponent();
+            this.staff = staff;
         }
 
         private void frmStaffManagent_Load(object sender, EventArgs e)
@@ -41,6 +45,7 @@ namespace GUI
             // Hiển thị
             dtgr.DataSource = controllerCB.HienThi();
         }
+
         private void Reset()
         {
             txtMaCanBo.ResetText();
@@ -49,6 +54,7 @@ namespace GUI
             txtSDT.ResetText();
             txtdiachi.ResetText();
         }
+
         private void btnThem_Click(object sender, EventArgs e)
         {
             txtMaCanBo.Enabled = false;
@@ -58,6 +64,7 @@ namespace GUI
             cboLTaiKhoan.DisplayMember = "TenLoai";
             cboLTaiKhoan.ValueMember = "MaLoai";
         }
+
         private Staff StaffCB()
         {
             Staff cb = new Staff();
@@ -71,6 +78,7 @@ namespace GUI
             return cb;
 
         }
+
         private bool KiemTra(Staff cb)
         {
             if(txtMaCanBo.Text.Equals(""))

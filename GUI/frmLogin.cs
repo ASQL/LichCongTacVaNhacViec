@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class frmLogin : Form
+    public partial class FrmLogin : Form
     {
         private StaffBUS staffBUS;
 
-        public frmLogin()
+        public FrmLogin()
         {
             InitializeComponent();
             staffBUS = new StaffBUS();
@@ -45,7 +45,7 @@ namespace GUI
                         {
                             if (staff.Password.Equals(staff.Account))
                             {
-                                frmChangePassword frmChangePassword = new frmChangePassword(staff);
+                                FrmChangePassword frmChangePassword = new FrmChangePassword(staff);
                                 frmChangePassword.Show();
                                 this.Visible = false;
                                 frmChangePassword.FormClosed += frmChangePassword_FormClosed;
