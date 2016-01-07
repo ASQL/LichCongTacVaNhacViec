@@ -65,5 +65,17 @@ namespace DAL
             String command = "select tb.* from ThongBao tb, NhanThongBao ntb where MaCanBo=@StaffId and ntb.MaThongBao=tb.MaThongBao";
             return DBConnection.Instance.ExecuteSelectQuery(command, parameters, CommandType.Text);
         }
+
+        public bool SendResponse(String detail, DateTime sendTime, DateTime deadline, String notificationID, int times)
+        {
+            SqlParameter[] parameters = new SqlParameter[]{
+                new SqlParameter("@NoiDung",detail),
+                new SqlParameter("@ThoiGianGui",sendTime),
+                new SqlParameter("@ThoiHan",deadline),
+                new SqlParameter("@MaThongBao",notificationID),
+                new SqlParameter("@SoLan",times)
+            };
+            return DBConnection.Instance.ExecuteQuery("SendResponse", parameters, CommandType.StoredProcedure);
+        }
     }
 }
