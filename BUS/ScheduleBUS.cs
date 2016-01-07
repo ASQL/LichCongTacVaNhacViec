@@ -27,5 +27,17 @@ namespace BUS
                 throw ex;
             }
         }
+
+        public bool RejectWork(String staffID, String notificationID)
+        {
+            try
+            {
+                return scheduleDAL.RejectWork(staffID, notificationID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -97,6 +97,13 @@ namespace GUI
         {
             notification.Status = 3;
             notificationBUS.Update(notification);
+            FrmReason frmReason = new FrmReason(staff, notification);
+            frmReason.Show();
+            frmReason.FormClosed += frmReason_FormClosed;
+        }
+
+        void frmReason_FormClosed(object sender, FormClosedEventArgs e)
+        {
             this.Close();
         }
 
