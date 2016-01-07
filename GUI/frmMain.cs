@@ -146,7 +146,7 @@ namespace GUI
 
         private void ShowNotificationDialog(Notification notification, int status)
         {
-            DialogNotification dialog = new DialogNotification(notification, status);
+            DialogNotification dialog = new DialogNotification(notification, status, staff);
             this.Invoke((MethodInvoker)delegate()
             {
                 dialog.Show();
@@ -178,7 +178,7 @@ namespace GUI
                             notification.ReceiveTime = DateTime.Today;
                             notification.Deadline = notification.Deadline.AddMinutes(30);
                             notification.Times--;
-                            DialogNotification dialog = new DialogNotification(notification);
+                            DialogNotification dialog = new DialogNotification(notification, staff);
                             this.Invoke((MethodInvoker)delegate()
                             {
                                 dialog.Show();
@@ -202,7 +202,7 @@ namespace GUI
 
         private void lvNotification_DoubleClick(object sender, EventArgs e)
         {
-            DialogNotification dialog = new DialogNotification(notifications[lvNotification.SelectedIndices[0]]);
+            DialogNotification dialog = new DialogNotification(notifications[lvNotification.SelectedIndices[0]], staff);
             dialog.Show();
         }
 
@@ -269,7 +269,7 @@ namespace GUI
 
         void frmChangePassword_FormClosed(object sender, FormClosedEventArgs e)
         {
-            switch(flag)
+            switch (flag)
             {
                 case 0:
                     this.Enabled = true;

@@ -73,7 +73,7 @@ namespace GUI
                 if (dgvNotification.SelectedRows.Count == 1)
                 {
                     DataRow row = notificationTable.Rows[dgvNotification.SelectedRows[0].Index];
-                    DialogNotification dialog = new DialogNotification(GetNotification(row));
+                    DialogNotification dialog = new DialogNotification(GetNotification(row), staff);
                     dialog.Show();
                 }
                 else
@@ -143,7 +143,7 @@ namespace GUI
                         condition = "TieuDe like '" + txtbFilter.Text + "'";
                         break;
                     case 1:
-                        condition = "ThoiGianGui <= '" + dtpFilter1.Value.ToShortDateString() + " " + dtpFilter2.Value.ToShortTimeString()+"'";
+                        condition = "ThoiGianGui <= '" + dtpFilter1.Value.ToShortDateString() + " " + dtpFilter2.Value.ToShortTimeString() + "'";
                         break;
                 }
                 notificationView.RowFilter = condition;

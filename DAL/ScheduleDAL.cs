@@ -19,5 +19,14 @@ namespace DAL
             };
             return DBConnection.Instance.ExecuteQuery("AcceptWork", parameters, CommandType.StoredProcedure);
         }
+
+        public bool RejectWork(String staffID, String notificationID)
+        {
+            SqlParameter[] parameters = new SqlParameter[]{
+                new SqlParameter("@MaCanBo",staffID),
+                new SqlParameter("@MaThongBao",notificationID)
+            };
+            return DBConnection.Instance.ExecuteQuery("RejectWork", parameters, CommandType.StoredProcedure);
+        }
     }
 }
