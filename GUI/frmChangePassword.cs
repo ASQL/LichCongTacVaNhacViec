@@ -35,18 +35,39 @@ namespace GUI
         {
             try
             {
-                if (staffBUS.UpdatePassword(staff.Account, txtbNewPass.Text))
+                if (txtbOldPass.Text != "" && txtbNewPass.Text != "" && txtbConfirmPass.Text != "")
                 {
-                    DialogResult dialogResult = MessageBox.Show("Đổi mật khẩu thành công!");
-                    if (dialogResult == DialogResult.OK)
+                    if (lbError1.Visible == false && lbError2.Visible == false)
                     {
-                        FrmMain.flag = 1;
-                        this.Close();
+                        if (staffBUS.UpdatePassword(staff.Account, txtbNewPass.Text))
+                        {
+                            DialogResult dialogResult = MessageBox.Show("Đổi mật khẩu thành công!");
+                            if (dialogResult == DialogResult.OK)
+                            {
+                                FrmMain.flag = 1;
+                                this.Close();
+                            }
+                        }
+                        else
+                        {
+                            throw new Exception("Đổi mật khẩu thất bại!");
+                        }
                     }
                 }
                 else
                 {
-                    throw new Exception("Đổi mật khẩu thất bại!");
+                    if(txtbOldPass.Text=="")
+                    {
+                        throw new Exception("Chưa nhập mật khẩu cũ!");
+                    }
+                    if (txtbNewPass.Text == "")
+                    {
+                        throw new Exception("Chưa nhập mật khẩu mới!");
+                    }
+                    if (txtbConfirmPass.Text == "")
+                    {
+                        throw new Exception("Chưa nhập mật khẩu xác nhận!");
+                    }
                 }
             }
             catch (Exception ex)
@@ -65,11 +86,11 @@ namespace GUI
         {
             if (txtbOldPass.Text.Equals(staff.Password))
             {
-                lbError2.Visible = false;
+                lbError1.Visible = false;
             }
             else
             {
-                lbError2.Visible = true;
+                lbError1.Visible = true;
             }
         }
 
