@@ -176,7 +176,7 @@ namespace GUI
                         else
                         {
                             notification.ReceiveTime = DateTime.Today;
-                            notification.Deadline = notification.Deadline.AddMinutes(15);
+                            notification.Deadline = notification.Deadline.AddMinutes(30);
                             notification.Times--;
                             DialogNotification dialog = new DialogNotification(notification);
                             this.Invoke((MethodInvoker)delegate()

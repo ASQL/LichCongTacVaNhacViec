@@ -65,7 +65,7 @@ namespace DAL
             return dt;
         }
 
-        public bool ExecuteQuery(String query, SqlParameter[] paramaters, CommandType cmdType)
+        public bool ExecuteQuery(String query, SqlParameter[] parameters, CommandType cmdType)
         {
             try
             {
@@ -74,9 +74,9 @@ namespace DAL
                 cmd.Connection = connection;
                 cmd.CommandText = query;
                 cmd.CommandType = cmdType;
-                if(paramaters!=null)
+                if (parameters != null)
                 {
-                    cmd.Parameters.AddRange(paramaters);
+                    cmd.Parameters.AddRange(parameters);
                 }
                 cmd.ExecuteNonQuery();
                 return true;
