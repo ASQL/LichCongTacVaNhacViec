@@ -81,12 +81,6 @@
     <Compile Include="FrmPersonalInformation.Designer.cs">
       <DependentUpon>FrmPersonalInformation.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmReason.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmReason.Designer.cs">
-      <DependentUpon>FrmReason.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmStaffManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,9 +112,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPersonalInformation.resx">
       <DependentUpon>FrmPersonalInformation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmReason.resx">
-      <DependentUpon>FrmReason.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStaffManagement.resx">
       <DependentUpon>FrmStaffManagement.cs</DependentUpon>

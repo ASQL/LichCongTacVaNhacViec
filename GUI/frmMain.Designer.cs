@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnFaculty = new System.Windows.Forms.Button();
             this.btnSubject = new System.Windows.Forms.Button();
@@ -41,6 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmiChangePassword = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiPersonalInformation = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmiSignOut = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,7 +52,6 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel5 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.tsmiChangePassword = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2.SuspendLayout();
             this.pnExpandedMenu.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -82,7 +83,7 @@
             this.btnFaculty.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
             this.btnFaculty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFaculty.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFaculty.ForeColor = System.Drawing.Color.White;
+            this.btnFaculty.ForeColor = System.Drawing.Color.Black;
             this.btnFaculty.Location = new System.Drawing.Point(398, 0);
             this.btnFaculty.Name = "btnFaculty";
             this.btnFaculty.Size = new System.Drawing.Size(77, 40);
@@ -100,7 +101,7 @@
             this.btnSubject.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
             this.btnSubject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubject.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubject.ForeColor = System.Drawing.Color.White;
+            this.btnSubject.ForeColor = System.Drawing.Color.Black;
             this.btnSubject.Location = new System.Drawing.Point(321, 0);
             this.btnSubject.Name = "btnSubject";
             this.btnSubject.Size = new System.Drawing.Size(77, 40);
@@ -122,7 +123,7 @@
             // 
             this.lbStaff.AutoSize = true;
             this.lbStaff.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbStaff.ForeColor = System.Drawing.Color.White;
+            this.lbStaff.ForeColor = System.Drawing.Color.Black;
             this.lbStaff.Location = new System.Drawing.Point(3, 11);
             this.lbStaff.Name = "lbStaff";
             this.lbStaff.Size = new System.Drawing.Size(56, 16);
@@ -139,7 +140,7 @@
             this.btnStaff.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
             this.btnStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStaff.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStaff.ForeColor = System.Drawing.Color.White;
+            this.btnStaff.ForeColor = System.Drawing.Color.Black;
             this.btnStaff.Location = new System.Drawing.Point(244, 0);
             this.btnStaff.Name = "btnStaff";
             this.btnStaff.Size = new System.Drawing.Size(77, 40);
@@ -157,7 +158,7 @@
             this.btnNotification.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
             this.btnNotification.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNotification.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNotification.ForeColor = System.Drawing.Color.White;
+            this.btnNotification.ForeColor = System.Drawing.Color.Black;
             this.btnNotification.Location = new System.Drawing.Point(142, 0);
             this.btnNotification.Name = "btnNotification";
             this.btnNotification.Size = new System.Drawing.Size(102, 40);
@@ -175,7 +176,7 @@
             this.btnSchedule.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
             this.btnSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSchedule.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSchedule.ForeColor = System.Drawing.Color.White;
+            this.btnSchedule.ForeColor = System.Drawing.Color.Black;
             this.btnSchedule.Location = new System.Drawing.Point(0, 0);
             this.btnSchedule.Name = "btnSchedule";
             this.btnSchedule.Size = new System.Drawing.Size(142, 40);
@@ -198,21 +199,22 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label1.Location = new System.Drawing.Point(3, 2);
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(2, -1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 33);
+            this.label1.Size = new System.Drawing.Size(189, 33);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Yue\'s Office";
+            this.label1.Text = "Essential Studio";
             // 
             // btnClose
             // 
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray;
-            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightGray;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
             this.btnClose.Location = new System.Drawing.Point(1214, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(36, 36);
@@ -228,7 +230,15 @@
             this.toolStripMenuItem1,
             this.tsmiSignOut});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(212, 98);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(212, 76);
+            // 
+            // tsmiChangePassword
+            // 
+            this.tsmiChangePassword.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsmiChangePassword.Name = "tsmiChangePassword";
+            this.tsmiChangePassword.Size = new System.Drawing.Size(211, 22);
+            this.tsmiChangePassword.Text = "Đổi mật khẩu";
+            this.tsmiChangePassword.Click += new System.EventHandler(this.tsmiChangePassword_Click);
             // 
             // tsmiPersonalInformation
             // 
@@ -307,23 +317,16 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Thông báo";
             // 
-            // tsmiChangePassword
-            // 
-            this.tsmiChangePassword.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsmiChangePassword.Name = "tsmiChangePassword";
-            this.tsmiChangePassword.Size = new System.Drawing.Size(211, 22);
-            this.tsmiChangePassword.Text = "Đổi mật khẩu";
-            this.tsmiChangePassword.Click += new System.EventHandler(this.tsmiChangePassword_Click);
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DimGray;
+            this.BackColor = System.Drawing.Color.Beige;
             this.ClientSize = new System.Drawing.Size(1250, 600);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IsMdiContainer = true;
             this.Name = "FrmMain";
