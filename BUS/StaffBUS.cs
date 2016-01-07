@@ -197,5 +197,17 @@ namespace BUS
             string sql = "Select MaLoai,TenLoai from LoaiTaiKhoan where MaLoai in ('" + MaLTK + "')";
             return DBConnection.Instance.ExecuteSelectQuery(sql, null, CommandType.Text);
         }
+
+        public bool UpdateStaffInformation(Staff staff)
+        {
+            try
+            {
+                return staffDAL.UpdateStaffInformation(staff);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -12,9 +12,23 @@ namespace BUS
 {
     public class SubjectBUS
     {
+        private SubjectDAL subjectDAL;
+
+        public SubjectBUS()
+        {
+            subjectDAL = new SubjectDAL();
+        }
+
         public DataTable HienThi()
         {
-            return DBConnection.Instance.ExecuteSelectQuery("select * from BoMon",null,CommandType.Text);
+            try
+            {
+                return subjectDAL.GetAll();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool Add(Subject bm)
@@ -95,6 +109,18 @@ namespace BUS
             string sql = "Select MaCanBo,TenCanBo from CanBo where MaBoMon in ('" + MaBoMon + "')";
             DataTable dt = DBConnection.Instance.ExecuteSelectQuery(sql, null, CommandType.Text);
             return dt;
+        }
+
+        public DataTable GetSubjectByFaculty(String FacultyID)
+        {
+            try
+            {
+                return subjectDAL.GetSubjectByFaculty(FacultyID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnFaculty = new System.Windows.Forms.Button();
+            this.btnSubject = new System.Windows.Forms.Button();
             this.pnExpandedMenu = new System.Windows.Forms.Panel();
             this.lbStaff = new System.Windows.Forms.Label();
             this.btnStaff = new System.Windows.Forms.Button();
@@ -39,7 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.thôngTinCáNhânToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiPersonalInformation = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmiSignOut = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -48,6 +50,7 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel5 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.tsmiChangePassword = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2.SuspendLayout();
             this.pnExpandedMenu.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -58,6 +61,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnFaculty);
+            this.panel2.Controls.Add(this.btnSubject);
             this.panel2.Controls.Add(this.pnExpandedMenu);
             this.panel2.Controls.Add(this.btnStaff);
             this.panel2.Controls.Add(this.btnNotification);
@@ -67,6 +72,42 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1250, 40);
             this.panel2.TabIndex = 4;
+            // 
+            // btnFaculty
+            // 
+            this.btnFaculty.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnFaculty.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnFaculty.FlatAppearance.BorderSize = 0;
+            this.btnFaculty.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray;
+            this.btnFaculty.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.btnFaculty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFaculty.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFaculty.ForeColor = System.Drawing.Color.White;
+            this.btnFaculty.Location = new System.Drawing.Point(398, 0);
+            this.btnFaculty.Name = "btnFaculty";
+            this.btnFaculty.Size = new System.Drawing.Size(77, 40);
+            this.btnFaculty.TabIndex = 5;
+            this.btnFaculty.Text = "KHOA";
+            this.btnFaculty.UseVisualStyleBackColor = true;
+            this.btnFaculty.Click += new System.EventHandler(this.btnFaculty_Click);
+            // 
+            // btnSubject
+            // 
+            this.btnSubject.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnSubject.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnSubject.FlatAppearance.BorderSize = 0;
+            this.btnSubject.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray;
+            this.btnSubject.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.btnSubject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubject.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubject.ForeColor = System.Drawing.Color.White;
+            this.btnSubject.Location = new System.Drawing.Point(321, 0);
+            this.btnSubject.Name = "btnSubject";
+            this.btnSubject.Size = new System.Drawing.Size(77, 40);
+            this.btnSubject.TabIndex = 4;
+            this.btnSubject.Text = "BỘ MÔN";
+            this.btnSubject.UseVisualStyleBackColor = true;
+            this.btnSubject.Click += new System.EventHandler(this.btnSubject_Click);
             // 
             // pnExpandedMenu
             // 
@@ -105,6 +146,7 @@
             this.btnStaff.TabIndex = 2;
             this.btnStaff.Text = "CÁN BỘ";
             this.btnStaff.UseVisualStyleBackColor = true;
+            this.btnStaff.Click += new System.EventHandler(this.btnStaff_Click);
             // 
             // btnNotification
             // 
@@ -140,6 +182,7 @@
             this.btnSchedule.TabIndex = 0;
             this.btnSchedule.Text = "LỊCH CÔNG VIỆC";
             this.btnSchedule.UseVisualStyleBackColor = true;
+            this.btnSchedule.Click += new System.EventHandler(this.btnSchedule_Click);
             // 
             // panel1
             // 
@@ -180,18 +223,20 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.thôngTinCáNhânToolStripMenuItem,
+            this.tsmiChangePassword,
+            this.tsmiPersonalInformation,
             this.toolStripMenuItem1,
             this.tsmiSignOut});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(212, 54);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(212, 98);
             // 
-            // thôngTinCáNhânToolStripMenuItem
+            // tsmiPersonalInformation
             // 
-            this.thôngTinCáNhânToolStripMenuItem.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.thôngTinCáNhânToolStripMenuItem.Name = "thôngTinCáNhânToolStripMenuItem";
-            this.thôngTinCáNhânToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.thôngTinCáNhânToolStripMenuItem.Text = "Thông tin cá nhân";
+            this.tsmiPersonalInformation.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsmiPersonalInformation.Name = "tsmiPersonalInformation";
+            this.tsmiPersonalInformation.Size = new System.Drawing.Size(211, 22);
+            this.tsmiPersonalInformation.Text = "Thông tin cá nhân";
+            this.tsmiPersonalInformation.Click += new System.EventHandler(this.tsmiPersonalInformation_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -231,6 +276,7 @@
             this.lvNotification.TabIndex = 3;
             this.lvNotification.UseCompatibleStateImageBehavior = false;
             this.lvNotification.View = System.Windows.Forms.View.Details;
+            this.lvNotification.DoubleClick += new System.EventHandler(this.lvNotification_DoubleClick);
             // 
             // columnHeader1
             // 
@@ -260,6 +306,14 @@
             this.label2.Size = new System.Drawing.Size(114, 33);
             this.label2.TabIndex = 0;
             this.label2.Text = "Thông báo";
+            // 
+            // tsmiChangePassword
+            // 
+            this.tsmiChangePassword.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsmiChangePassword.Name = "tsmiChangePassword";
+            this.tsmiChangePassword.Size = new System.Drawing.Size(211, 22);
+            this.tsmiChangePassword.Text = "Đổi mật khẩu";
+            this.tsmiChangePassword.Click += new System.EventHandler(this.tsmiChangePassword_Click);
             // 
             // FrmMain
             // 
@@ -300,7 +354,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem thôngTinCáNhânToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiPersonalInformation;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem tsmiSignOut;
         private System.Windows.Forms.Panel panel3;
@@ -310,5 +364,8 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnFaculty;
+        private System.Windows.Forms.Button btnSubject;
+        private System.Windows.Forms.ToolStripMenuItem tsmiChangePassword;
     }
 }

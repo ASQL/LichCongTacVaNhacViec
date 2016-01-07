@@ -14,20 +14,29 @@ namespace GUI
 {
     public partial class DialogNotification : Form
     {
-        private Notification notification;
         private NotificationBUS notificationBUS;
+        private ScheduleBUS scheduleBUS;
+
+        private Notification notification;
+        private Staff staff;
         private int status;
 
         public DialogNotification()
         {
             InitializeComponent();
+            notification = new Notification();
+            staff = new Staff();
+            scheduleBUS = new ScheduleBUS();
+            notificationBUS = new NotificationBUS();
         }
 
-        public DialogNotification(Notification notification)
+        public DialogNotification(Notification notification, Staff staff)
         {
             InitializeComponent();
             this.notification = notification;
             notificationBUS = new NotificationBUS();
+            scheduleBUS = new ScheduleBUS();
+            this.staff = staff;
             switch(notification.Status)
             {
                 case 1:
@@ -42,11 +51,14 @@ namespace GUI
             }
         }
 
-        public DialogNotification(Notification notification, int status)
+        public DialogNotification(Notification notification, int status, Staff staff)
         {
             InitializeComponent();
             this.notification = notification;
             this.status = status;
+            notificationBUS = new NotificationBUS();
+            scheduleBUS = new ScheduleBUS();
+            this.staff = staff;
         }
 
         private void DialogNotification_Load(object sender, EventArgs e)
@@ -92,6 +104,7 @@ namespace GUI
         {
             notification.Status = 3;
             notificationBUS.Update(notification);
+            scheduleBUS.AcceptWork(staff.ID, notification.ID);
             this.Close();
         }
     }
