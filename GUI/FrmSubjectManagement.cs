@@ -21,7 +21,7 @@ namespace GUI
         public FrmSubjectManagement()
         {
             InitializeComponent();
-            staff=new Staff();
+            staff = new Staff();
         }
 
         public FrmSubjectManagement(Staff staff)
@@ -33,11 +33,31 @@ namespace GUI
         private void frmSubject_Load(object sender, EventArgs e)
         {
 
+            // PHAN QUYỀN
+
+            if(staff.Type==3)
+            {
+                btnThem.Enabled = true;
+                btnSua.Enabled = true;
+                btnXoa.Enabled = true;
+                btnLuu.Enabled = true;
+            }
+            else
+            {
+                btnThem.Enabled = false;
+                btnSua.Enabled = false;
+                btnXoa.Enabled = false;
+                btnLuu.Enabled = false;
+            }
+             
+            dtgr.DataSource = controllerBM.HienThi();
+
+
             cboMaKhoa.DataSource = controllerBM.GetKhoa();
             cboMaKhoa.DisplayMember = "TenKhoa";
             cboMaKhoa.ValueMember = "MaKhoa";
 
-            dtgr.DataSource = controllerBM.HienThi();
+           
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -160,6 +180,11 @@ namespace GUI
                 dtgr.DataSource = controllerBM.HienThi();
                 Reset();
             }
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
