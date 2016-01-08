@@ -26,12 +26,31 @@ namespace GUI
 
         public FrmStaffManagement(Staff staff)
         {
+
             InitializeComponent();
             this.staff = staff;
         }
 
         private void frmStaffManagent_Load(object sender, EventArgs e)
         {
+
+
+            // chia quyen 
+            if(staff.Type==1 || staff.Type==2 || staff.Type==3)
+            {
+                btnThem.Enabled = true;
+                btnSua.Enabled = true;
+                btnXoa.Enabled = true;
+                btnLuu.Enabled = true;
+            }
+            else
+            {
+                btnThem.Enabled = false;
+                btnSua.Enabled = false;
+                btnXoa.Enabled = false;
+                btnLuu.Enabled = false;
+            }
+
             cboBoMon.DataSource = controllerCB.GetBoMon();
             cboBoMon.DisplayMember = "TenBoMon";
             cboBoMon.ValueMember = "MaBoMon";
