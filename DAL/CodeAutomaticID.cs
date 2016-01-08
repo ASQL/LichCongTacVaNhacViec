@@ -8,7 +8,6 @@ namespace DAL
 {
     public class CodeAutomaticID
     {
-
         public static string NextID(string lastID, string prefixID)
         {
             if (String.IsNullOrEmpty(lastID))
@@ -30,7 +29,6 @@ namespace DAL
                 }
             }
             return prefixID + nextID;
-
         }
     }
 }

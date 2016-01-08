@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class frmStaffManagent
+    partial class FrmStaffManagement
     {
         /// <summary>
         /// Required designer variable.
@@ -69,6 +69,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Beige;
             this.panel1.Controls.Add(this.cboLTaiKhoan);
             this.panel1.Controls.Add(this.txtdiachi);
             this.panel1.Controls.Add(this.label9);
@@ -95,7 +96,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(747, 216);
+            this.panel1.Size = new System.Drawing.Size(933, 216);
             this.panel1.TabIndex = 0;
             // 
             // cboLTaiKhoan
@@ -252,7 +253,6 @@
             this.label7.Size = new System.Drawing.Size(77, 13);
             this.label7.TabIndex = 5;
             this.label7.Text = " Loại tài khoản";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label5
             // 
@@ -305,7 +305,7 @@
             this.dtgr.Dock = System.Windows.Forms.DockStyle.Top;
             this.dtgr.Location = new System.Drawing.Point(0, 216);
             this.dtgr.Name = "dtgr";
-            this.dtgr.Size = new System.Drawing.Size(747, 180);
+            this.dtgr.Size = new System.Drawing.Size(933, 180);
             this.dtgr.TabIndex = 1;
             this.dtgr.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgr_CellClick);
             // 
@@ -315,7 +315,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 396);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(747, 55);
+            this.panel2.Size = new System.Drawing.Size(933, 55);
             this.panel2.TabIndex = 2;
             // 
             // groupBox1
@@ -331,7 +331,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(747, 74);
+            this.groupBox1.Size = new System.Drawing.Size(933, 74);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tìm kiếm cán bộ";
@@ -394,15 +394,17 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "Tìm kiếm theo mã cán bộ";
             // 
-            // frmStaffManagent
+            // FrmStaffManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(747, 472);
+            this.BackColor = System.Drawing.Color.Beige;
+            this.ClientSize = new System.Drawing.Size(933, 524);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dtgr);
             this.Controls.Add(this.panel1);
-            this.Name = "frmStaffManagent";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "FrmStaffManagement";
             this.Text = "Quản lý cán bộ";
             this.Load += new System.EventHandler(this.frmStaffManagent_Load);
             this.panel1.ResumeLayout(false);

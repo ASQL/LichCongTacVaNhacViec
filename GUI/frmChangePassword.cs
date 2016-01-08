@@ -12,19 +12,19 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class frmChangePassword : Form
+    public partial class FrmChangePassword : Form
     {
         private StaffBUS staffBUS;
         private Staff staff;
 
-        public frmChangePassword()
+        public FrmChangePassword()
         {
             InitializeComponent();
             staff = new Staff();
             staffBUS = new StaffBUS();
         }
 
-        public frmChangePassword(Staff staff)
+        public FrmChangePassword(Staff staff)
         {
             InitializeComponent();
             this.staff = staff;
@@ -35,17 +35,39 @@ namespace GUI
         {
             try
             {
-                if (staffBUS.UpdatePassword(staff.Account, txtbNewPass.Text))
+                if (txtbOldPass.Text != "" && txtbNewPass.Text != "" && txtbConfirmPass.Text != "")
                 {
-                    DialogResult dialogResult = MessageBox.Show("Đổi mật khẩu thành công!");
-                    if (dialogResult == DialogResult.OK)
+                    if (lbError1.Visible == false && lbError2.Visible == false)
                     {
-                        this.Close();
+                        if (staffBUS.UpdatePassword(staff.Account, txtbNewPass.Text))
+                        {
+                            DialogResult dialogResult = MessageBox.Show("Đổi mật khẩu thành công!");
+                            if (dialogResult == DialogResult.OK)
+                            {
+                                FrmMain.flag = 1;
+                                this.Close();
+                            }
+                        }
+                        else
+                        {
+                            throw new Exception("Đổi mật khẩu thất bại!");
+                        }
                     }
                 }
                 else
                 {
-                    throw new Exception("Đổi mật khẩu thất bại!");
+                    if(txtbOldPass.Text=="")
+                    {
+                        throw new Exception("Chưa nhập mật khẩu cũ!");
+                    }
+                    if (txtbNewPass.Text == "")
+                    {
+                        throw new Exception("Chưa nhập mật khẩu mới!");
+                    }
+                    if (txtbConfirmPass.Text == "")
+                    {
+                        throw new Exception("Chưa nhập mật khẩu xác nhận!");
+                    }
                 }
             }
             catch (Exception ex)
@@ -56,6 +78,7 @@ namespace GUI
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            FrmMain.flag = 0;
             this.Close();
         }
 
@@ -63,11 +86,11 @@ namespace GUI
         {
             if (txtbOldPass.Text.Equals(staff.Password))
             {
-                lbError2.Visible = false;
+                lbError1.Visible = false;
             }
             else
             {
-                lbError2.Visible = true;
+                lbError1.Visible = true;
             }
         }
 

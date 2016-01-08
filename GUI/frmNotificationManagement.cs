@@ -12,28 +12,23 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class frmNotificationManagement : Form
+    public partial class FrmNotificationManagement : Form
     {
         private NotificationBUS notificationBUS;
         private Staff staff;
         private DataTable notificationTable;
         private DataView notificationView;
 
-        public frmNotificationManagement()
+        public FrmNotificationManagement()
         {
             InitializeComponent();
         }
 
-        public frmNotificationManagement(Staff staff)
+        public FrmNotificationManagement(Staff staff)
         {
             InitializeComponent();
             this.staff = staff;
             notificationBUS = new NotificationBUS();
-        }
-
-        private void searchBox_SearchClicked()
-        {
-
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -45,7 +40,12 @@ namespace GUI
                     DialogResult dr = MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Xác nhận", MessageBoxButtons.YesNo);
                     if (dr == DialogResult.Yes)
                     {
-
+                        for(int i=0;i<dgvNotification.SelectedRows.Count;i++)
+                        {
+                            DataRow row = notificationTable.Rows[dgvNotification.SelectedRows[0].Index];
+                            notificationBUS.Delete(GetNotification(row).ID, staff.ID);
+                        }
+                        LoadData();
                     }
                 }
                 else
@@ -73,7 +73,7 @@ namespace GUI
                 if (dgvNotification.SelectedRows.Count == 1)
                 {
                     DataRow row = notificationTable.Rows[dgvNotification.SelectedRows[0].Index];
-                    DialogNotification dialog = new DialogNotification(GetNotification(row));
+                    DialogNotification dialog = new DialogNotification(GetNotification(row), staff);
                     dialog.Show();
                 }
                 else
@@ -143,7 +143,7 @@ namespace GUI
                         condition = "TieuDe like '" + txtbFilter.Text + "'";
                         break;
                     case 1:
-                        condition = "ThoiGianGui <= '" + dtpFilter1.Value.ToShortDateString() + " " + dtpFilter2.Value.ToShortTimeString()+"'";
+                        condition = "ThoiGianGui <= '" + dtpFilter1.Value.ToShortDateString() + " " + dtpFilter2.Value.ToShortTimeString() + "'";
                         break;
                 }
                 notificationView.RowFilter = condition;

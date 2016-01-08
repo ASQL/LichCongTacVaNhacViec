@@ -32,7 +32,7 @@ namespace DTO
             set { detail = value; }
         }
 
-        // 1: unread; 2: read; 3: replied; 4: over times
+        // 1: unread; 2: replied; 3: over times;
         private int status;
 
         public int Status

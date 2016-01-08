@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class frmSubject
+    partial class FrmSubjectManagement
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cboTruongBoMon = new System.Windows.Forms.ComboBox();
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
@@ -41,7 +42,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dtgr = new System.Windows.Forms.DataGridView();
-            this.cboTruongBoMon = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgr)).BeginInit();
             this.SuspendLayout();
@@ -63,8 +63,16 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(432, 173);
+            this.panel1.Size = new System.Drawing.Size(933, 173);
             this.panel1.TabIndex = 0;
+            // 
+            // cboTruongBoMon
+            // 
+            this.cboTruongBoMon.FormattingEnabled = true;
+            this.cboTruongBoMon.Location = new System.Drawing.Point(94, 78);
+            this.cboTruongBoMon.Name = "cboTruongBoMon";
+            this.cboTruongBoMon.Size = new System.Drawing.Size(108, 21);
+            this.cboTruongBoMon.TabIndex = 12;
             // 
             // btnLuu
             // 
@@ -170,26 +178,20 @@
             this.dtgr.Dock = System.Windows.Forms.DockStyle.Top;
             this.dtgr.Location = new System.Drawing.Point(0, 173);
             this.dtgr.Name = "dtgr";
-            this.dtgr.Size = new System.Drawing.Size(432, 175);
+            this.dtgr.Size = new System.Drawing.Size(933, 175);
             this.dtgr.TabIndex = 1;
             this.dtgr.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgr_CellClick);
             // 
-            // cboTruongBoMon
-            // 
-            this.cboTruongBoMon.FormattingEnabled = true;
-            this.cboTruongBoMon.Location = new System.Drawing.Point(94, 78);
-            this.cboTruongBoMon.Name = "cboTruongBoMon";
-            this.cboTruongBoMon.Size = new System.Drawing.Size(108, 21);
-            this.cboTruongBoMon.TabIndex = 12;
-            // 
-            // frmSubject
+            // FrmSubjectManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(432, 348);
+            this.BackColor = System.Drawing.Color.Beige;
+            this.ClientSize = new System.Drawing.Size(933, 524);
             this.Controls.Add(this.dtgr);
             this.Controls.Add(this.panel1);
-            this.Name = "frmSubject";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "FrmSubjectManagement";
             this.Text = "Quản lý bộ môn";
             this.Load += new System.EventHandler(this.frmSubject_Load);
             this.panel1.ResumeLayout(false);

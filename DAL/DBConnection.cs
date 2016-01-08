@@ -15,19 +15,19 @@ namespace DAL
 
         public static DBConnection Instance
         {
-            get 
-            { 
-                if(instance==null)
+            get
+            {
+                if (instance == null)
                 {
                     instance = new DBConnection();
                 }
-                return instance; 
+                return instance;
             }
         }
 
         private DBConnection()
         {
-            connection = new SqlConnection("Data Source=DELL-PC;Initial Catalog=LichCongTacVaNhacViec;Integrated Security=True; MultipleActiveResultSets=True");
+            connection = new SqlConnection(@"Data Source=kite\sqlexpress;Initial Catalog=LichCongTacVaNhacViec;Integrated Security=True;MultipleActiveResultSets=True");
         }
 
         private SqlConnection OpenConnectionIfNeed()
@@ -44,47 +44,33 @@ namespace DAL
             SqlCommand cmd = new SqlCommand();
             DataTable dt = new DataTable();
             SqlDataAdapter adapter = new SqlDataAdapter();
-            try
+            OpenConnectionIfNeed();
+            cmd.Connection = connection;
+            cmd.CommandText = query;
+            cmd.CommandType = cmdType;
+            if (parameters != null)
             {
-                OpenConnectionIfNeed();
-                cmd.Connection = connection;
-                cmd.CommandText = query;
-                cmd.CommandType = cmdType;
-                if (parameters != null)
-                {
-                    cmd.Parameters.AddRange(parameters);
-                }
-                cmd.ExecuteNonQuery();
-                adapter.SelectCommand = cmd;
-                adapter.Fill(dt);
+                cmd.Parameters.AddRange(parameters);
             }
-            catch (SqlException e)
-            {
-                throw e;
-            }
+            cmd.ExecuteNonQuery();
+            adapter.SelectCommand = cmd;
+            adapter.Fill(dt);
             return dt;
         }
 
-        public bool ExecuteQuery(String query, SqlParameter[] paramaters, CommandType cmdType)
+        public bool ExecuteQuery(String query, SqlParameter[] parameters, CommandType cmdType)
         {
-            try
+            SqlCommand cmd = new SqlCommand();
+            OpenConnectionIfNeed();
+            cmd.Connection = connection;
+            cmd.CommandText = query;
+            cmd.CommandType = cmdType;
+            if (parameters != null)
             {
-                SqlCommand cmd = new SqlCommand();
-                OpenConnectionIfNeed();
-                cmd.Connection = connection;
-                cmd.CommandText = query;
-                cmd.CommandType = cmdType;
-                if(paramaters!=null)
-                {
-                    cmd.Parameters.AddRange(paramaters);
-                }
-                cmd.ExecuteNonQuery();
-                return true;
+                cmd.Parameters.AddRange(parameters);
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            cmd.ExecuteNonQuery();
+            return true;
         }
     }
 }

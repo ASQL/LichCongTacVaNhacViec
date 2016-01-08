@@ -51,17 +51,17 @@
     <Compile Include="DialogNotification.Designer.cs">
       <DependentUpon>DialogNotification.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChangePassword.cs">
+    <Compile Include="FrmChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChangePassword.Designer.cs">
-      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    <Compile Include="FrmChangePassword.Designer.cs">
+      <DependentUpon>FrmChangePassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLogin.cs">
+    <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogin.Designer.cs">
-      <DependentUpon>frmLogin.cs</DependentUpon>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
@@ -69,46 +69,55 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmNotificationManagement.cs">
+    <Compile Include="FrmNotificationManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmNotificationManagement.Designer.cs">
-      <DependentUpon>frmNotificationManagement.cs</DependentUpon>
+    <Compile Include="FrmNotificationManagement.Designer.cs">
+      <DependentUpon>FrmNotificationManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmStaffManagent.cs">
+    <Compile Include="FrmPersonalInformation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStaffManagent.Designer.cs">
-      <DependentUpon>frmStaffManagent.cs</DependentUpon>
+    <Compile Include="FrmPersonalInformation.Designer.cs">
+      <DependentUpon>FrmPersonalInformation.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSubject.cs">
+    <Compile Include="FrmStaffManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSubject.Designer.cs">
-      <DependentUpon>frmSubject.cs</DependentUpon>
+    <Compile Include="FrmStaffManagement.Designer.cs">
+      <DependentUpon>FrmStaffManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSubjectManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSubjectManagement.Designer.cs">
+      <DependentUpon>FrmSubjectManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DialogNotification.resx">
       <DependentUpon>DialogNotification.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChangePassword.resx">
-      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    <EmbeddedResource Include="FrmChangePassword.resx">
+      <DependentUpon>FrmChangePassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
-      <DependentUpon>frmLogin.cs</DependentUpon>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmNotificationManagement.resx">
-      <DependentUpon>frmNotificationManagement.cs</DependentUpon>
+    <EmbeddedResource Include="FrmNotificationManagement.resx">
+      <DependentUpon>FrmNotificationManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStaffManagent.resx">
-      <DependentUpon>frmStaffManagent.cs</DependentUpon>
+    <EmbeddedResource Include="FrmPersonalInformation.resx">
+      <DependentUpon>FrmPersonalInformation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSubject.resx">
-      <DependentUpon>frmSubject.cs</DependentUpon>
+    <EmbeddedResource Include="FrmStaffManagement.resx">
+      <DependentUpon>FrmStaffManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSubjectManagement.resx">
+      <DependentUpon>FrmSubjectManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -136,10 +145,6 @@
     <ProjectReference Include="..\BUS\BUS.csproj">
       <Project>{09722904-d81c-49b5-8f1e-8055bbfb6b1d}</Project>
       <Name>BUS</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CustomControl\CustomControl.csproj">
-      <Project>{2509e988-5758-4b41-9ec3-6f04d0384682}</Project>
-      <Name>CustomControl</Name>
     </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{a94ff8ef-1d5b-42be-a764-3f0a705d7d18}</Project>
