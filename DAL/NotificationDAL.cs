@@ -36,9 +36,13 @@ namespace DAL
             return DBConnection.Instance.ExecuteQuery("UpdateNotification",parameters,CommandType.StoredProcedure);
         }
 
-        public bool Delete(String notificationId)
+        public bool Delete(String notificationId, String staffId)
         {
-            return DBConnection.Instance.ExecuteQuery("delete from ThongBao where MaThongBao = '" + notificationId + "'", null, CommandType.Text);
+            SqlParameter[] parameters = new SqlParameter[]{
+                new SqlParameter("@MaCanBo",staffId),
+                new SqlParameter("@MaThongBao",notificationId)
+            };
+            return DBConnection.Instance.ExecuteQuery("DeleteNotification", parameters, CommandType.StoredProcedure);
         }
 
         public DataTable GetLastTenRowsByStaffID(String id)

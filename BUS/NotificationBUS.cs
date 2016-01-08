@@ -28,9 +28,9 @@ namespace BUS
             return notificationDAL.Update(notification);
         }
 
-        public bool Delete(String notificationId)
+        public bool Delete(String notificationId, String staffId)
         {
-            return notificationDAL.Delete(notificationId);
+            return notificationDAL.Delete(notificationId, staffId);
         }
 
         public List<Notification> GetLastTenRowsByStaffId(String id)
@@ -53,7 +53,7 @@ namespace BUS
                 }
                 return notifications;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }

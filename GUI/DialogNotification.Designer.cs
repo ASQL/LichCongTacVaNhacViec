@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DialogNotification));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.lbTitle = new System.Windows.Forms.Label();
@@ -36,8 +37,6 @@
             this.lbReceiveTime = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnAccept = new System.Windows.Forms.Button();
-            this.btnReject = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.rtxtbDetail = new System.Windows.Forms.RichTextBox();
             this.btnOk = new System.Windows.Forms.Button();
@@ -54,7 +53,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(417, 34);
+            this.panel1.Size = new System.Drawing.Size(417, 36);
             this.panel1.TabIndex = 0;
             // 
             // btnClose
@@ -62,12 +61,13 @@
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray;
-            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightGray;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
             this.btnClose.Location = new System.Drawing.Point(381, 0);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(36, 34);
+            this.btnClose.Size = new System.Drawing.Size(36, 36);
             this.btnClose.TabIndex = 1;
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -88,7 +88,7 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 34);
+            this.panel2.Location = new System.Drawing.Point(0, 36);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(417, 62);
@@ -130,33 +130,11 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Thời gian nhận: ";
             // 
-            // btnAccept
-            // 
-            this.btnAccept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAccept.Location = new System.Drawing.Point(71, 346);
-            this.btnAccept.Name = "btnAccept";
-            this.btnAccept.Size = new System.Drawing.Size(108, 31);
-            this.btnAccept.TabIndex = 2;
-            this.btnAccept.Text = "Chấp nhận";
-            this.btnAccept.UseVisualStyleBackColor = true;
-            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
-            // 
-            // btnReject
-            // 
-            this.btnReject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReject.Location = new System.Drawing.Point(251, 346);
-            this.btnReject.Name = "btnReject";
-            this.btnReject.Size = new System.Drawing.Size(108, 31);
-            this.btnReject.TabIndex = 3;
-            this.btnReject.Text = "Từ chối";
-            this.btnReject.UseVisualStyleBackColor = true;
-            this.btnReject.Click += new System.EventHandler(this.btnReject_Click);
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.rtxtbDetail);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 96);
+            this.panel3.Location = new System.Drawing.Point(0, 98);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(417, 231);
             this.panel3.TabIndex = 4;
@@ -179,7 +157,6 @@
             this.btnOk.TabIndex = 5;
             this.btnOk.Text = "Ok";
             this.btnOk.UseVisualStyleBackColor = true;
-            this.btnOk.Visible = false;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // DialogNotification
@@ -187,9 +164,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(417, 396);
-            this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.btnOk);
-            this.Controls.Add(this.btnReject);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -214,8 +189,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbTitle;
         private System.Windows.Forms.Panel panel2;
-        public System.Windows.Forms.Button btnAccept;
-        public System.Windows.Forms.Button btnReject;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label3;

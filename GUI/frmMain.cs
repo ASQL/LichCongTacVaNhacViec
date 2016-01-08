@@ -111,10 +111,7 @@ namespace GUI
                     {
                         notifications.RemoveRange(0, notifications.Count);
                     }
-                    else
-                    {
-                        notifications = notificationBUS.GetLastTenRowsByStaffId(staff.ID);
-                    }
+                    notifications = notificationBUS.GetLastTenRowsByStaffId(staff.ID);
                     if (notifications.Count > 0)
                     {
                         SetList(notifications);
@@ -146,7 +143,7 @@ namespace GUI
 
         private void ShowNotificationDialog(Notification notification, int status)
         {
-            DialogNotification dialog = new DialogNotification(notification, status, staff);
+            DialogNotification dialog = new DialogNotification(notification, staff);
             this.Invoke((MethodInvoker)delegate()
             {
                 dialog.Show();
@@ -157,25 +154,25 @@ namespace GUI
         {
             while (checking)
             {
-                DateTime today = DateTime.Today;
+                DateTime today = DateTime.Now;
                 Notification notification = notificationBUS.GetUnrepliedNotificationByStaffId(staff.ID);
-                if (notification.ID != "")
+                if (notification.ID != null)
                 {
-                    if (today.CompareTo(notification.Deadline) < 0)
+                    if (today.CompareTo(notification.Deadline) > 0)
                     {
                         if (notification.Times == 0)
                         {
-                            notification.Status = 4;
+                            notification.Status = 3;
                             if (staff.Type != 1 && staff.Type != 2)
                             {
                                 String detail = "Cán bộ " + staff.Name + " chưa trả lời thư!";
-                                DateTime deadline = DateTime.Today.AddHours(3);
-                                notificationBUS.Insert(staff.ID, "Nhắc nhở", detail, DateTime.Today, deadline, 2);
+                                DateTime deadline = DateTime.Now.AddHours(3);
+                                notificationBUS.Insert(staff.ID, "Nhắc nhở", detail, DateTime.Now, deadline, 2);
                             }
                         }
                         else
                         {
-                            notification.ReceiveTime = DateTime.Today;
+                            notification.ReceiveTime = DateTime.Now;
                             notification.Deadline = notification.Deadline.AddMinutes(30);
                             notification.Times--;
                             DialogNotification dialog = new DialogNotification(notification, staff);
@@ -189,10 +186,7 @@ namespace GUI
                         {
                             notifications.RemoveRange(0, notifications.Count);
                         }
-                        else
-                        {
-                            notifications = notificationBUS.GetLastTenRowsByStaffId(staff.ID);
-                        }
+                        notifications = notificationBUS.GetLastTenRowsByStaffId(staff.ID);
                         SetList(notifications);
                     }
                 }

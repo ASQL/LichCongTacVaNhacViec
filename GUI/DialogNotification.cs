@@ -19,7 +19,6 @@ namespace GUI
 
         private Notification notification;
         private Staff staff;
-        private int status;
 
         public DialogNotification()
         {
@@ -37,44 +36,10 @@ namespace GUI
             notificationBUS = new NotificationBUS();
             scheduleBUS = new ScheduleBUS();
             this.staff = staff;
-            switch(notification.Status)
-            {
-                case 1:
-                    status = 1;
-                    break;
-                case 2:
-                    status = 2;
-                    break;
-                default:
-                    status = 2;
-                    break;
-            }
-        }
-
-        public DialogNotification(Notification notification, int status, Staff staff)
-        {
-            InitializeComponent();
-            this.notification = notification;
-            this.status = status;
-            notificationBUS = new NotificationBUS();
-            scheduleBUS = new ScheduleBUS();
-            this.staff = staff;
         }
 
         private void DialogNotification_Load(object sender, EventArgs e)
         {
-            if(status==1)
-            {
-                btnOk.Visible = false;
-                btnAccept.Visible = true;
-                btnReject.Visible = true;
-            }
-            else
-            {
-                btnOk.Visible = true;
-                btnAccept.Visible = false;
-                btnReject.Visible = false;
-            }
             lbTitle.Text = notification.Title;
             lbReceiveTime.Text = notification.ReceiveTime.ToShortDateString() + " " + notification.ReceiveTime.ToShortTimeString();
             lbDeadLine.Text = notification.Deadline.ToShortDateString() + " " + notification.Deadline.ToShortTimeString();
@@ -88,30 +53,27 @@ namespace GUI
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            notification.Status = 3;
-            notificationBUS.Update(notification);
-            this.Close();
-        }
+            try
+            {
+                if (notification.Status == 1)
+                {
+                    notification.Status = 2;
+                    notificationBUS.Update(notification);
+                    String detail = "Nhân viên " + staff.Name + " nhận công việc.";
+                    notificationBUS.SendResponse(detail, DateTime.Now, DateTime.Now.AddHours(3), notification.ID, 3);
+                    scheduleBUS.AcceptWork(staff.ID, notification.ID);
+                }
+                this.Close();
 
-        private void btnReject_Click(object sender, EventArgs e)
-        {
-            notification.Status = 3;
-            notificationBUS.Update(notification);
-            FrmReason frmReason = new FrmReason(staff, notification);
-            frmReason.Show();
-            frmReason.FormClosed += frmReason_FormClosed;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         void frmReason_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Close();
-        }
-
-        private void btnAccept_Click(object sender, EventArgs e)
-        {
-            notification.Status = 3;
-            notificationBUS.Update(notification);
-            scheduleBUS.AcceptWork(staff.ID, notification.ID);
             this.Close();
         }
     }

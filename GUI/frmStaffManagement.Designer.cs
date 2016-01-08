@@ -69,6 +69,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Beige;
             this.panel1.Controls.Add(this.cboLTaiKhoan);
             this.panel1.Controls.Add(this.txtdiachi);
             this.panel1.Controls.Add(this.label9);
@@ -397,6 +398,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Beige;
             this.ClientSize = new System.Drawing.Size(933, 524);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dtgr);
