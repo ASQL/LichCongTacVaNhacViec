@@ -25,6 +25,7 @@ namespace GUI
         private FrmNotificationManagement frmNotificationManagement;
         private FrmSubjectManagement frmSubjectManagement;
         private FrmStaffManagement frmStaffManagement;
+        private FrmScheduleManagement frmScheduleManagement;
 
         private bool checking;
         public static int flag;
@@ -202,7 +203,19 @@ namespace GUI
 
         private void btnSchedule_Click(object sender, EventArgs e)
         {
-
+            if (frmScheduleManagement == null)
+            {
+                frmScheduleManagement = new FrmScheduleManagement(staff);
+                frmScheduleManagement.MdiParent = this;
+                frmScheduleManagement.Dock = DockStyle.Fill;
+                frmScheduleManagement.Show();
+            }
+            else
+            {
+                frmScheduleManagement.BringToFront();
+            }
+            SetAllButtonToNormal();
+            btnSchedule.BackColor = Color.Turquoise;
         }
 
         private void btnStaff_Click(object sender, EventArgs e)

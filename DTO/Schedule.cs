@@ -55,5 +55,19 @@ namespace DTO
             get { return endDate; }
             set { endDate = value; }
         }
+
+        private String subjectId;
+        public String SubjectID
+        {
+            get { return subjectId; }
+            set { subjectId = value; }
+        }
+
+        private String facultyId;
+        public String FaccultyID
+        {
+            get { return facultyId; }
+            set { facultyId = value; }
+        }
     }
 }
