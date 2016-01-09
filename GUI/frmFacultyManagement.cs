@@ -13,16 +13,16 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class frmFacultyManagement : Form
+    public partial class FrmFacultyManagement : Form
     {
         private FacultyBUS controllerKhoa = new FacultyBUS();
         private Staff staff;
-        public frmFacultyManagement()
+        public FrmFacultyManagement()
         {
             InitializeComponent();
         }
 
-        public frmFacultyManagement(Staff staff)
+        public FrmFacultyManagement(Staff staff)
         {
             InitializeComponent();
             this.staff = staff;

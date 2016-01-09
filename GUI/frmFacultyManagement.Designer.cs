@@ -1,6 +1,6 @@
 ﻿namespace GUI
 {
-    partial class frmFacultyManagement
+    partial class FrmFacultyManagement
     {
         /// <summary>
         /// Required designer variable.
