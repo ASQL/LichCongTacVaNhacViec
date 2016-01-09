@@ -22,18 +22,6 @@ namespace BUS
             {
                 return scheduleDAL.AcceptWork(staffID, notificationID);
             }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public bool RejectWork(String staffID, String notificationID)
-        {
-            try
-            {
-                return scheduleDAL.RejectWork(staffID, notificationID);
-            }
             catch (Exception ex)
             {
                 throw ex;
