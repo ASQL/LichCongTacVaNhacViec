@@ -32,7 +32,7 @@ namespace GUI
         {
             // Phân quyen
 
-            if(staff.Type==2)
+            if(staff.Type==1)
             {
                 btnThem.Enabled = true;
                 btnSua.Enabled = true;

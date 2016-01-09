@@ -21,64 +21,35 @@ namespace BUS
 
         public DataTable HienThi()
         {
-            try
-            {
-                return subjectDAL.GetAll();
-            }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
+            return subjectDAL.GetAll();
         }
 
         public bool Add(Subject bm)
         {
-            try
-            {
-
-                SqlParameter[] sqlParams = new SqlParameter[]{
+            SqlParameter[] sqlParams = new SqlParameter[]{
                           new SqlParameter("@MaBoMon", bm.MaBoMon),
                           new SqlParameter("@TenBoMon", bm.TenBoMon),
                           new SqlParameter("@MaTruongBoMon", bm.MaTruongBoMon),
                           new SqlParameter("@MaKhoa", bm.MaKhoa)};
-                return DBConnection.Instance.ExecuteQuery("BoMon_Insert", sqlParams, CommandType.StoredProcedure);
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
+            return DBConnection.Instance.ExecuteQuery("BoMon_Insert", sqlParams, CommandType.StoredProcedure);
         }
+
         public bool Edit(Subject bm)
         {
-            try
-            {
-                SqlParameter[] sqlParams = new SqlParameter[]{
+            SqlParameter[] sqlParams = new SqlParameter[]{
                           new SqlParameter("@MaBoMon", bm.MaBoMon),
                           new SqlParameter("@TenBoMon", bm.TenBoMon),
                           new SqlParameter("@MaTruongBoMon", bm.MaTruongBoMon),
                           new SqlParameter("@MaKhoa", bm.MaKhoa)};
-                return DBConnection.Instance.ExecuteQuery("BoMon_Update", sqlParams, CommandType.StoredProcedure);
-                
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
+            return DBConnection.Instance.ExecuteQuery("BoMon_Update", sqlParams, CommandType.StoredProcedure);
         }
+
         public bool Delete(Subject bm)
         {
-            try
-            {
-                SqlParameter[] sqlParams = new SqlParameter[]{
+            SqlParameter[] sqlParams = new SqlParameter[]{
                           new SqlParameter("@MaBoMon", bm.MaBoMon)
                           };
-                return DBConnection.Instance.ExecuteQuery("BoMon_Delete", sqlParams, CommandType.StoredProcedure);
-              
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
+            return DBConnection.Instance.ExecuteQuery("BoMon_Delete", sqlParams, CommandType.StoredProcedure);
         }
         public string GetLastID(string NameFile, string NameTable)
         {
@@ -113,14 +84,12 @@ namespace BUS
 
         public DataTable GetSubjectByFaculty(String FacultyID)
         {
-            try
-            {
-                return subjectDAL.GetSubjectByFaculty(FacultyID);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            return subjectDAL.GetSubjectByFaculty(FacultyID);
+        }
+        public DataTable GetSubjectKhoa(string tenkhoa)
+        {
+            string sql = "select * from BoMon,Khoa where BoMon.MaKhoa = Khoa.MaKhoa and TenKhoa like N'%" + tenkhoa + "%'";
+            return DBConnection.Instance.ExecuteSelectQuery(sql, null, CommandType.Text);
         }
     }
 }

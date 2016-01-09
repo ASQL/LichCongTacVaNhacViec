@@ -186,6 +186,17 @@ namespace BUS
             string sql = "Select MaLoai,TenLoai from LoaiTaiKhoan";
             return DBConnection.Instance.ExecuteSelectQuery(sql, null, CommandType.Text);
         }
+        public DataTable GetStaffKhoa(string tenbomon)
+        {
+            string sql = "SELECT * FROM CanBo WHERE MaBoMon IN (SELECT MaBoMon FROM BoMon WHERE MaKhoa = (select MaKhoa from BoMon where TenBoMon like N'%"+tenbomon+"%'))";
+            DataTable dt = DBConnection.Instance.ExecuteSelectQuery(sql, null, CommandType.Text);
+            return dt;
+        }
+        public DataTable GetStaffBM(string tenbomon)
+        {
+            string sql = "select * from CanBo,BoMon where CanBo.MaBoMon = BoMon.MaBoMon and TenBoMon like N'%"+tenbomon+"%'" ;
+            return DBConnection.Instance.ExecuteSelectQuery(sql, null, CommandType.Text);
+        }
         public string GetLoaiTaiKhoan(string MaTK)
         {
             string sql = "Select MaLoai from TaiKhoan where MaTaiKhoan in ('" + MaTK + "')";
