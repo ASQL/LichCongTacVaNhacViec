@@ -88,6 +88,17 @@ namespace GUI
             displayNotificationThread.Start();
             checkNotificationThread = new Thread(CheckNotification);
             checkNotificationThread.Start();
+            switch(staff.Type)
+            {
+                case 3:
+                    btnFaculty.Visible = false;
+                    break;
+                default:
+                    btnStaff.Visible = false;
+                    btnSubject.Visible = false;
+                    btnFaculty.Visible = false;
+                    break;
+            }
         }
 
         private void LoadList(List<Notification> notifications)
