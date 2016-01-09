@@ -25,7 +25,7 @@ namespace GUI
         private FrmNotificationManagement frmNotificationManagement;
         private FrmSubjectManagement frmSubjectManagement;
         private FrmStaffManagement frmStaffManagement;
-
+        private frmFacultyManagement frmFacultyManagement;
         private bool checking;
         public static int flag;
 
@@ -241,7 +241,19 @@ namespace GUI
 
         private void btnFaculty_Click(object sender, EventArgs e)
         {
-
+            if (frmFacultyManagement == null)
+            {
+                frmFacultyManagement = new frmFacultyManagement(staff);
+                frmFacultyManagement.MdiParent = this;
+                frmFacultyManagement.Dock = DockStyle.Fill;
+                frmFacultyManagement.Show();
+            }
+            else
+            {
+                frmFacultyManagement.BringToFront();
+            }
+            SetAllButtonToNormal();
+            btnFaculty.BackColor = Color.Turquoise;
         }
 
         private void SetAllButtonToNormal()
