@@ -93,6 +93,12 @@
     <Compile Include="FrmScheduleManagement.Designer.cs">
       <DependentUpon>FrmScheduleManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSelectStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSelectStaff.Designer.cs">
+      <DependentUpon>FrmSelectStaff.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmStaffManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmScheduleManagement.resx">
       <DependentUpon>FrmScheduleManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSelectStaff.resx">
+      <DependentUpon>FrmSelectStaff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStaffManagement.resx">
       <DependentUpon>FrmStaffManagement.cs</DependentUpon>
