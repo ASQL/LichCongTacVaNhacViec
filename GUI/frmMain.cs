@@ -25,7 +25,8 @@ namespace GUI
         private FrmNotificationManagement frmNotificationManagement;
         private FrmSubjectManagement frmSubjectManagement;
         private FrmStaffManagement frmStaffManagement;
-        private frmFacultyManagement frmFacultyManagement;
+        private FrmFacultyManagement frmFacultyManagement;
+        private FrmScheduleManagement frmScheduleManagement;
         private bool checking;
         public static int flag;
 
@@ -90,7 +91,6 @@ namespace GUI
             checkNotificationThread.Start();
             switch(staff.Type)
             {
-
                 case 3:
                     btnFaculty.Visible = false;
                     break;
@@ -99,6 +99,11 @@ namespace GUI
                     btnFaculty.Visible = false;
                     break;
             }
+            frmScheduleManagement = new FrmScheduleManagement(staff);
+            frmScheduleManagement.MdiParent = this;
+            frmScheduleManagement.Dock = DockStyle.Fill;
+            frmScheduleManagement.Show();
+            btnSchedule.BackColor = Color.Turquoise;
         }
 
         private void LoadList(List<Notification> notifications)
@@ -213,7 +218,9 @@ namespace GUI
 
         private void btnSchedule_Click(object sender, EventArgs e)
         {
-
+            frmScheduleManagement.BringToFront();
+            SetAllButtonToNormal();
+            btnSchedule.BackColor = Color.Turquoise;
         }
 
         private void btnStaff_Click(object sender, EventArgs e)
@@ -254,7 +261,7 @@ namespace GUI
         {
             if (frmFacultyManagement == null)
             {
-                frmFacultyManagement = new frmFacultyManagement(staff);
+                frmFacultyManagement = new FrmFacultyManagement(staff);
                 frmFacultyManagement.MdiParent = this;
                 frmFacultyManagement.Dock = DockStyle.Fill;
                 frmFacultyManagement.Show();
