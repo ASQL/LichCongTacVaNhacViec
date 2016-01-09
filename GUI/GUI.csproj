@@ -57,11 +57,11 @@
     <Compile Include="FrmChangePassword.Designer.cs">
       <DependentUpon>FrmChangePassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmFacultyManagement.cs">
+    <Compile Include="FrmFacultyManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmFacultyManagement.Designer.cs">
-      <DependentUpon>frmFacultyManagement.cs</DependentUpon>
+    <Compile Include="FrmFacultyManagement.Designer.cs">
+      <DependentUpon>FrmFacultyManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
@@ -87,6 +87,12 @@
     <Compile Include="FrmPersonalInformation.Designer.cs">
       <DependentUpon>FrmPersonalInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmScheduleManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmScheduleManagement.Designer.cs">
+      <DependentUpon>FrmScheduleManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmStaffManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,8 +113,8 @@
     <EmbeddedResource Include="FrmChangePassword.resx">
       <DependentUpon>FrmChangePassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmFacultyManagement.resx">
-      <DependentUpon>frmFacultyManagement.cs</DependentUpon>
+    <EmbeddedResource Include="FrmFacultyManagement.resx">
+      <DependentUpon>FrmFacultyManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
@@ -121,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPersonalInformation.resx">
       <DependentUpon>FrmPersonalInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmScheduleManagement.resx">
+      <DependentUpon>FrmScheduleManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStaffManagement.resx">
       <DependentUpon>FrmStaffManagement.cs</DependentUpon>
