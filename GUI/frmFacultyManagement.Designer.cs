@@ -62,7 +62,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(810, 214);
+            this.panel1.Size = new System.Drawing.Size(933, 214);
             this.panel1.TabIndex = 2;
             // 
             // cboMaTruongKhoa
@@ -162,9 +162,9 @@
             this.TenKhoa,
             this.MaTruongKhoa});
             this.dtgr.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dtgr.Location = new System.Drawing.Point(0, 221);
+            this.dtgr.Location = new System.Drawing.Point(0, 294);
             this.dtgr.Name = "dtgr";
-            this.dtgr.Size = new System.Drawing.Size(810, 175);
+            this.dtgr.Size = new System.Drawing.Size(933, 230);
             this.dtgr.TabIndex = 3;
             this.dtgr.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgr_CellClick);
             // 
@@ -193,9 +193,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(810, 396);
+            this.BackColor = System.Drawing.Color.Beige;
+            this.ClientSize = new System.Drawing.Size(933, 524);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dtgr);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmFacultyManagement";
             this.Text = "Quản lý Khoa";
             this.Load += new System.EventHandler(this.frmFacultyManagement_Load);
