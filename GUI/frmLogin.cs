@@ -108,7 +108,7 @@ namespace GUI
         private void txtbPassword_MouseDown(object sender, MouseEventArgs e)
         {
             txtbPassword.ForeColor = Color.Black;
-            txtbPassword.PasswordChar = '*';
+            txtbPassword.UseSystemPasswordChar = true;
             txtbPassword.Text = "";
             firstPress2 = false;
         }
