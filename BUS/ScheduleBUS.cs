@@ -1,9 +1,6 @@
 ﻿using DAL;
-using DTO;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,18 +28,6 @@ namespace BUS
             }
         }
 
-        public bool RejectWork(String staffID, String notificationID)
-        {
-            try
-            {
-                return scheduleDAL.RejectWork(staffID, notificationID);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
         public DataTable GetAllBus()
         {
             return scheduleDAL.GetAll();
@@ -53,7 +38,7 @@ namespace BUS
             return scheduleDAL.Insert(scheduleId, work, detail, place, beginDate, endDate, facultyId, subjectId);
         }
 
-        public bool UpdateBus(Schedule schedule )
+        public bool UpdateBus(Schedule schedule)
         {
             return scheduleDAL.Update(schedule);
         }
