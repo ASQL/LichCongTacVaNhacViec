@@ -86,14 +86,42 @@ namespace DAL
         {
             string sql = "SELECT * FROM Khoa WHERE MaTruongKhoa = '"+staffId+"'";
             DataTable dt = DBConnection.Instance.ExecuteSelectQuery(sql, null, CommandType.Text);
-            return dt.Rows[0][0].ToString();
+            if (dt.Rows.Count > 0)
+            {
+                return dt.Rows[0][0].ToString();
+            }
+            else
+            {
+                return "NULL";
+            }
         }
 
         public string getSubjectId(string staffId)
         {
             string sql = "SELECT * fROM BoMon WHERE MaTruongBoMon = '" + staffId + "'";
             DataTable dt = DBConnection.Instance.ExecuteSelectQuery(sql, null, CommandType.Text);
-            return dt.Rows[0][0].ToString();
+            if (dt.Rows.Count > 0)
+            {
+                return dt.Rows[0][0].ToString();
+            }
+            else
+            {
+                return "NULL";
+            }
+        }
+
+        public DataTable getStaffinSubject(string staffId)
+        {
+            string sql = "select * from CanBo where MaBoMon = '" + getSubjectId(staffId) + "'";
+            DataTable dt = DBConnection.Instance.ExecuteSelectQuery(sql, null, CommandType.Text);
+            return dt;
+        }
+        public DataTable getStaffinFaculty(string faculty)
+        {
+            SqlParameter[] parameters = new SqlParameter[]{
+                new SqlParameter("@TenKhoa",faculty)
+            };
+            return DBConnection.Instance.ExecuteSelectQuery("GetStaffByFaculty", parameters, CommandType.StoredProcedure);
         }
     }
 }

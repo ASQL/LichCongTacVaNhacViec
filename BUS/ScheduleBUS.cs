@@ -79,5 +79,13 @@ namespace BUS
         {
             return scheduleDAL.getSubjectId(staffId);
         }
+        public DataTable getStaffInSubject(string staffId)
+        {
+            return scheduleDAL.getStaffinSubject(staffId);
+        }
+        public DataTable getStaffInFaculty(string faculty)
+        {
+            return scheduleDAL.getStaffinFaculty(faculty);
+        }
     }
 }

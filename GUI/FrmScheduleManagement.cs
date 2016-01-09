@@ -15,6 +15,7 @@ namespace GUI
 {
     public partial class FrmScheduleManagement : Form
     {
+        private FrmSelectStaff frmSelectStaff;
         private ScheduleBUS scheduleBus = new ScheduleBUS();
         private Staff staff;
         private DataTable scheduleTable;
@@ -121,6 +122,13 @@ namespace GUI
             else
             {
                 scheduleBus.InsertBus(txtScheduleId.Text, txtWork.Text, rtxDetailSche.Text, txtPlace.Text, dtpBeginDate.Value, dtpEndDate.Value, "NULL", scheduleBus.getSubjectId(staff.ID));
+            }
+
+
+            if (frmSelectStaff == null)
+            {
+                frmSelectStaff = new FrmSelectStaff(staff);
+                frmSelectStaff.Show();
             }
             LoadData();
         }
