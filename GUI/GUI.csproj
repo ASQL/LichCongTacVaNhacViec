@@ -57,6 +57,12 @@
     <Compile Include="FrmChangePassword.Designer.cs">
       <DependentUpon>FrmChangePassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmFacultyManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFacultyManagement.Designer.cs">
+      <DependentUpon>frmFacultyManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmChangePassword.resx">
       <DependentUpon>FrmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFacultyManagement.resx">
+      <DependentUpon>frmFacultyManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
