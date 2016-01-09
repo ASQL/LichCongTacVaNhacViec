@@ -40,11 +40,14 @@ namespace BUS
             return scheduleDAL.Insert(scheduleId, work, detail, place, beginDate, endDate, facultyId, subjectId);
         }
 
-        public bool UpdateBus(Schedule schedule)
+        public bool UpdateBus(String scheduleId, String work, String detail, String place, DateTime beginDate, DateTime endDate, String facultyId, String subjectId)
         {
-            return scheduleDAL.Update(schedule);
+            return scheduleDAL.Update(scheduleId, work, detail, place, beginDate, endDate, facultyId, subjectId);
         }
-        //public bool Delete()
+        public bool Delete(string scheduleId)
+        {
+            return scheduleDAL.Delete(scheduleId);
+        }
 
 
         public DataTable findScheduleByWorkBus(String work)
@@ -56,7 +59,10 @@ namespace BUS
         {
             return scheduleDAL.getLastId();
         }
-
+        public string getLastIdNotiBus()
+        {
+            return scheduleDAL.getLastIdNoti();
+        }
         public string getFacultyId(string staffId)
         {
             return scheduleDAL.getFacultyId(staffId);
@@ -65,6 +71,19 @@ namespace BUS
         public string getSubjectId(string staffId)
         {
             return scheduleDAL.getSubjectId(staffId);
+        }
+        public DataTable getStaffInSubject(string staffId)
+        {
+            return scheduleDAL.getStaffinSubject(staffId);
+        }
+        public DataTable getStaffInFaculty(string faculty)
+        {
+            return scheduleDAL.getStaffinFaculty(faculty);
+        }
+
+        public bool InsertNotification(string staffId, string notiId, string scheId, DateTime sendTime, DateTime endTime, int soLan)
+        {
+            return scheduleDAL.InsertNotification(staffId, notiId, scheId, sendTime, endTime, soLan);
         }
     }
 }
