@@ -90,11 +90,11 @@ namespace GUI
             checkNotificationThread.Start();
             switch(staff.Type)
             {
+
                 case 3:
                     btnFaculty.Visible = false;
                     break;
-                default:
-                    btnStaff.Visible = false;
+                case 4:
                     btnSubject.Visible = false;
                     btnFaculty.Visible = false;
                     break;

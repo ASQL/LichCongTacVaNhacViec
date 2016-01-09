@@ -173,21 +173,21 @@
             this.MaKhoa.DataPropertyName = "MaKhoa";
             this.MaKhoa.HeaderText = "Mã Khoa";
             this.MaKhoa.Name = "MaKhoa";
-            this.MaKhoa.Width = 200;
+            this.MaKhoa.Width = 250;
             // 
             // TenKhoa
             // 
             this.TenKhoa.DataPropertyName = "TenKhoa";
             this.TenKhoa.HeaderText = "Tên Khoa";
             this.TenKhoa.Name = "TenKhoa";
-            this.TenKhoa.Width = 400;
+            this.TenKhoa.Width = 450;
             // 
             // MaTruongKhoa
             // 
             this.MaTruongKhoa.DataPropertyName = "MaTruongKhoa";
             this.MaTruongKhoa.HeaderText = "Mã Trưởng Khoa";
             this.MaTruongKhoa.Name = "MaTruongKhoa";
-            this.MaTruongKhoa.Width = 200;
+            this.MaTruongKhoa.Width = 250;
             // 
             // frmFacultyManagement
             // 

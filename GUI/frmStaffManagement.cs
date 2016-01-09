@@ -62,7 +62,24 @@ namespace GUI
             cboGioiTinh.SelectedValue = "Nam";
 
             // Hiển thị
-            dtgr.DataSource = controllerCB.HienThi();
+            switch (staff.Type)
+            {
+
+                case 1:
+                    dtgr.DataSource = controllerCB.HienThi();
+                    break;
+                case 2:
+                    dtgr.DataSource = controllerCB.GetStaffKhoa(staff.Subject);
+                    break;
+                case 3:
+                    dtgr.DataSource = controllerCB.GetStaffBM(staff.Subject);
+                    break;
+                case 4:
+                    dtgr.DataSource = controllerCB.GetStaffBM(staff.Subject);
+                    break;
+
+            }
+
         }
 
         private void Reset()

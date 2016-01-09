@@ -35,7 +35,7 @@ namespace GUI
 
             // PHAN QUYỀN
 
-            if(staff.Type==3)
+            if(staff.Type==1 || staff.Type==2)
             {
                 btnThem.Enabled = true;
                 btnSua.Enabled = true;
@@ -49,8 +49,21 @@ namespace GUI
                 btnXoa.Enabled = false;
                 btnLuu.Enabled = false;
             }
-             
-            dtgr.DataSource = controllerBM.HienThi();
+
+            switch (staff.Type)
+            {
+
+                case 1:
+                    dtgr.DataSource = controllerBM.HienThi();
+                    break;
+                case 2:
+                    dtgr.DataSource = controllerBM.GetSubjectKhoa(staff.Faculty);
+                    break;
+                case 3:
+                    dtgr.DataSource = controllerBM.GetSubjectKhoa(staff.Faculty);
+                    break;
+            }
+           
 
 
             cboMaKhoa.DataSource = controllerBM.GetKhoa();
