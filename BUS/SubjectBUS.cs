@@ -86,5 +86,10 @@ namespace BUS
         {
             return subjectDAL.GetSubjectByFaculty(FacultyID);
         }
+        public DataTable GetSubjectKhoa(string tenkhoa)
+        {
+            string sql = "select * from BoMon,Khoa where BoMon.MaKhoa = Khoa.MaKhoa and TenKhoa like N'%" + tenkhoa + "%'";
+            return DBConnection.Instance.ExecuteSelectQuery(sql, null, CommandType.Text);
+        }
     }
 }
