@@ -40,26 +40,28 @@ namespace DAL
             return DBConnection.Instance.ExecuteQuery("InsertSchedule", parameters, CommandType.StoredProcedure);
         }
 
-        public bool Update(Schedule schedule)
+        public bool Update(String scheduleId, String work, String detail, String place, DateTime beginDate, DateTime endDate, String facultyId, String subjectId)
         {
             SqlParameter[] parameters = new SqlParameter[]{
-                new SqlParameter("@MaLich",schedule.ID),
-                new SqlParameter("@TenCongViec",schedule.Work),
-                new SqlParameter("@MoTaCongViec",schedule.Detail),
-                new SqlParameter("@DiaDiem",schedule.Place),
-                new SqlParameter("@NgayBatDau",schedule.BeginDate),
-                new SqlParameter("@NgayKetThuc",schedule.EndDate),
-                new SqlParameter("@MaKhoa",schedule.FaccultyID),
-                new SqlParameter("@MaBoMon",schedule.SubjectID)
+                new SqlParameter("@MaLich",scheduleId),
+                new SqlParameter("@TenCongViec",work),
+                new SqlParameter("@MoTaCongViec",detail),
+                new SqlParameter("@DiaDiem",place),
+                new SqlParameter("@NgayBatDau",beginDate),
+                new SqlParameter("@NgayKetThuc",endDate),
+                new SqlParameter("@MaKhoa",facultyId),
+                new SqlParameter("@MaBoMon",subjectId)
             };
             return DBConnection.Instance.ExecuteQuery("UpdateSchedule", parameters, CommandType.StoredProcedure);
         }
 
-        //public bool Delete()
-        //{
-
-        //    return DBConnection.Instance.ExecuteQuery("DeleteSchedule", parameters, CommandType.StoredProcedure);
-        //}
+        public bool Delete(string scheduleId)
+        {
+            SqlParameter[] parameters = new SqlParameter[] { 
+                new SqlParameter("@MaLich",scheduleId)
+            };
+            return DBConnection.Instance.ExecuteQuery("DeleteSchedule", parameters, CommandType.StoredProcedure);
+        }
 
         public DataTable findSchedulebyWork(String work)
         {
@@ -69,6 +71,13 @@ namespace DAL
         public string getLastId()
         {
             string sql = "SELECT TOP 1 MaLich FROM LichCongTac ORDER BY MaLich DESC";
+            DataTable dt = DBConnection.Instance.ExecuteSelectQuery(sql, null, CommandType.Text);
+            return dt.Rows[0][0].ToString();
+        }
+
+        public string getLastIdNoti()
+        {
+            string sql = "SELECT TOP 1 MaThongBao FROM ThongBao ORDER BY MaThongBao DESC";
             DataTable dt = DBConnection.Instance.ExecuteSelectQuery(sql, null, CommandType.Text);
             return dt.Rows[0][0].ToString();
         }
@@ -113,6 +122,19 @@ namespace DAL
                 new SqlParameter("@TenKhoa",faculty)
             };
             return DBConnection.Instance.ExecuteSelectQuery("GetStaffByFaculty", parameters, CommandType.StoredProcedure);
+        }
+
+        public bool InsertNotification(string staffId,string notiId,string scheId,DateTime sendTime,DateTime endTime,int soLan)
+        {
+            SqlParameter[] parameters = new SqlParameter[]{
+                new SqlParameter("@MaCanBo",staffId),
+                new SqlParameter("@MaThongBao",notiId),
+                new SqlParameter("@MaLich",scheId),
+                new SqlParameter("@ThoiGianGui",sendTime),
+                new SqlParameter("@ThoiHan",endTime),
+                new SqlParameter("@SoLan",soLan)
+            };
+            return DBConnection.Instance.ExecuteQuery("InsertNotification", parameters, CommandType.StoredProcedure);
         }
     }
 }

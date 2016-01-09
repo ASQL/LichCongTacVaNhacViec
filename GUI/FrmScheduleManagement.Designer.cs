@@ -54,9 +54,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.rtxDetailSche = new System.Windows.Forms.RichTextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtFindWork = new System.Windows.Forms.TextBox();
-            this.btnFindWork = new System.Windows.Forms.Button();
             this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
             this.txtPlace = new System.Windows.Forms.TextBox();
@@ -286,9 +283,6 @@
             this.panel1.BackColor = System.Drawing.Color.Beige;
             this.panel1.Controls.Add(this.rtxDetailSche);
             this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.txtFindWork);
-            this.panel1.Controls.Add(this.btnFindWork);
             this.panel1.Controls.Add(this.dtpEndDate);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.txtPlace);
@@ -313,7 +307,7 @@
             // 
             this.rtxDetailSche.Location = new System.Drawing.Point(145, 158);
             this.rtxDetailSche.Name = "rtxDetailSche";
-            this.rtxDetailSche.Size = new System.Drawing.Size(612, 85);
+            this.rtxDetailSche.Size = new System.Drawing.Size(612, 115);
             this.rtxDetailSche.TabIndex = 28;
             this.rtxDetailSche.Text = "";
             // 
@@ -325,31 +319,6 @@
             this.label14.Size = new System.Drawing.Size(84, 13);
             this.label14.TabIndex = 26;
             this.label14.Text = "Mô tả công việc";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(265, 267);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(91, 13);
-            this.label10.TabIndex = 28;
-            this.label10.Text = "Tìm kiếm theo tên";
-            // 
-            // txtFindWork
-            // 
-            this.txtFindWork.Location = new System.Drawing.Point(376, 264);
-            this.txtFindWork.Name = "txtFindWork";
-            this.txtFindWork.Size = new System.Drawing.Size(119, 20);
-            this.txtFindWork.TabIndex = 27;
-            // 
-            // btnFindWork
-            // 
-            this.btnFindWork.Location = new System.Drawing.Point(523, 262);
-            this.btnFindWork.Name = "btnFindWork";
-            this.btnFindWork.Size = new System.Drawing.Size(75, 23);
-            this.btnFindWork.TabIndex = 26;
-            this.btnFindWork.Text = "Tìm kiếm";
-            this.btnFindWork.UseVisualStyleBackColor = true;
             // 
             // dtpEndDate
             // 
@@ -401,6 +370,7 @@
             this.btnDelSche.TabIndex = 18;
             this.btnDelSche.Text = "Xóa";
             this.btnDelSche.UseVisualStyleBackColor = true;
+            this.btnDelSche.Click += new System.EventHandler(this.btnDelSche_Click);
             // 
             // btnEditSche
             // 
@@ -410,6 +380,7 @@
             this.btnEditSche.TabIndex = 17;
             this.btnEditSche.Text = "Sửa";
             this.btnEditSche.UseVisualStyleBackColor = true;
+            this.btnEditSche.Click += new System.EventHandler(this.btnEditSche_Click);
             // 
             // btnAddSche
             // 
@@ -647,9 +618,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.RichTextBox rtxDetailSche;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtFindWork;
-        private System.Windows.Forms.Button btnFindWork;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgvSche;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaLich;

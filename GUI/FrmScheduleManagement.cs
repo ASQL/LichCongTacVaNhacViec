@@ -18,8 +18,11 @@ namespace GUI
         private FrmSelectStaff frmSelectStaff;
         private ScheduleBUS scheduleBus = new ScheduleBUS();
         private Staff staff;
+        private Schedule schedule = new Schedule();
         private DataTable scheduleTable;
         private DataView scheduleView;
+        private int TEMP = 0;
+        private int STATUS_BUTTON = 0;
         public FrmScheduleManagement()
         {
             InitializeComponent();
@@ -70,7 +73,7 @@ namespace GUI
 
         private void enableText()
         {
-            
+
             txtWork.Enabled = true;
             txtPlace.Enabled = true;
             rtxDetailSche.Enabled = true;
@@ -111,26 +114,97 @@ namespace GUI
             resetText();
             enableText();
             txtScheduleId.Text = CodeAutomaticID.NextID(scheduleBus.getLastIdBus(), "L");
+            TEMP = 1;
         }
 
         private void btnSaveSche_Click(object sender, EventArgs e)
         {
-            if (this.staff.Type == 2)
+            if (TEMP == 1)
             {
-                scheduleBus.InsertBus(txtScheduleId.Text, txtWork.Text, rtxDetailSche.Text, txtPlace.Text, dtpBeginDate.Value, dtpEndDate.Value,scheduleBus.getFacultyId(this.staff.ID),"NULL");
+                if (this.staff.Type == 2)
+                {
+                    scheduleBus.InsertBus(txtScheduleId.Text, txtWork.Text, rtxDetailSche.Text, txtPlace.Text, dtpBeginDate.Value, dtpEndDate.Value, scheduleBus.getFacultyId(this.staff.ID), "NULL");
+                    schedule.ID = txtScheduleId.Text.ToString();
+                    schedule.Work = txtWork.Text.ToString();
+                    schedule.Detail = rtxDetailSche.Text.ToString();
+                    schedule.Place = txtPlace.Text.ToString();
+                    schedule.BeginDate = dtpBeginDate.Value;
+                    schedule.EndDate = dtpEndDate.Value;
+                    STATUS_BUTTON = 1;
+                    
+                }
+                else
+                {
+                    scheduleBus.InsertBus(txtScheduleId.Text, txtWork.Text, rtxDetailSche.Text, txtPlace.Text, dtpBeginDate.Value, dtpEndDate.Value, "NULL", scheduleBus.getSubjectId(this.staff.ID));
+                    schedule.ID = txtScheduleId.Text.ToString();
+                    schedule.Work = txtWork.Text.ToString();
+                    schedule.Detail = rtxDetailSche.Text.ToString();
+                    schedule.Place = txtPlace.Text.ToString();
+                    schedule.BeginDate = dtpBeginDate.Value;
+                    schedule.EndDate = dtpEndDate.Value;
+                    STATUS_BUTTON = 1;
+                }
+                if (frmSelectStaff == null)
+                {
+                    frmSelectStaff = new FrmSelectStaff(staff, schedule,STATUS_BUTTON);
+                    frmSelectStaff.Show();
+                }
+                LoadData();
+                TEMP = 0;
             }
             else
             {
-                scheduleBus.InsertBus(txtScheduleId.Text, txtWork.Text, rtxDetailSche.Text, txtPlace.Text, dtpBeginDate.Value, dtpEndDate.Value, "NULL", scheduleBus.getSubjectId(staff.ID));
+                if (this.staff.Type == 2)
+                {
+                    scheduleBus.UpdateBus(txtScheduleId.Text, txtWork.Text, rtxDetailSche.Text, txtPlace.Text, dtpBeginDate.Value, dtpEndDate.Value, scheduleBus.getFacultyId(this.staff.ID), "NULL");
+                    schedule.ID = txtScheduleId.Text.ToString();
+                    schedule.Work = txtWork.Text.ToString();
+                    schedule.Detail = rtxDetailSche.Text.ToString();
+                    schedule.Place = txtPlace.Text.ToString();
+                    schedule.BeginDate = dtpBeginDate.Value;
+                    schedule.EndDate = dtpEndDate.Value;
+                    STATUS_BUTTON = 2;
+                }
+                else
+                {
+                    scheduleBus.UpdateBus(txtScheduleId.Text, txtWork.Text, rtxDetailSche.Text, txtPlace.Text, dtpBeginDate.Value, dtpEndDate.Value, "NULL", scheduleBus.getSubjectId(this.staff.ID));
+                    schedule.ID = txtScheduleId.Text.ToString();
+                    schedule.Work = txtWork.Text.ToString();
+                    schedule.Detail = rtxDetailSche.Text.ToString();
+                    schedule.Place = txtPlace.Text.ToString();
+                    schedule.BeginDate = dtpBeginDate.Value;
+                    schedule.EndDate = dtpEndDate.Value;
+                    STATUS_BUTTON = 2;
+                }
+                if (frmSelectStaff == null)
+                {
+                    frmSelectStaff = new FrmSelectStaff(staff, schedule,STATUS_BUTTON);
+                    frmSelectStaff.Show();
+                }
+                LoadData();
+                TEMP = 0;
             }
 
+        }
 
-            if (frmSelectStaff == null)
-            {
-                frmSelectStaff = new FrmSelectStaff(staff);
-                frmSelectStaff.Show();
-            }
-            LoadData();
+        private void btnEditSche_Click(object sender, EventArgs e)
+        {
+            resetText();
+            enableText();
+            txtScheduleId.Text = dgvSche.CurrentRow.Cells["MaLich"].Value.ToString();
+            TEMP = 2;
+        }
+
+        private void btnDelSche_Click(object sender, EventArgs e)
+        {
+             if(MessageBox.Show("Bạn có muốn xóa "+txtWork.Text +" không ?","Hỏi",MessageBoxButtons.YesNo
+                , MessageBoxIcon.Question) == DialogResult.Yes)
+             {
+                 string scheduleId = dgvSche.CurrentRow.Cells["MaLich"].Value.ToString();
+                 scheduleBus.Delete(scheduleId);
+                 MessageBox.Show("Xóa thành công", "Thông báo");
+                 LoadData();
+             }
         }
 
     }

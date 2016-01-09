@@ -15,26 +15,49 @@ namespace GUI
 {
     public partial class FrmSelectStaff : Form
     {
-        Staff staff;
-        ScheduleBUS scheduleBus = new ScheduleBUS();
-        DataTable selectStaffTable;
-        DataView selectStaffView;
+        private Staff staff;
+        private Schedule schedule;
+        private int statusButton;
+        private ScheduleBUS scheduleBus = new ScheduleBUS();
+        private DataTable selectStaffTable;
+        private DataView selectStaffView;
         public FrmSelectStaff()
         {
             InitializeComponent();
             staff = new Staff();
         }
 
-        public FrmSelectStaff(Staff staff) // da dung cai nay da dung 
+        public FrmSelectStaff(Staff staff,Schedule schedule,int status) 
 
         {
             InitializeComponent();
             this.staff = staff;
+            this.schedule = schedule;
+            this.statusButton = status;
+        }
+
+        public FrmSelectStaff(Staff staff, Schedule schedule)
+        {
+            // TODO: Complete member initialization
+            this.staff = staff;
+            this.schedule = schedule;
         }
 
         private void btnSelectStaff_Click(object sender, EventArgs e)
         {
-
+            string notiId = CodeAutomaticID.NextID(scheduleBus.getLastIdNotiBus(), "TB");
+            string staffSelectId = dgvSelectStaff.CurrentRow.Cells["MaCanBo"].Value.ToString();
+            scheduleBus.InsertNotification(staffSelectId, notiId, schedule.ID, DateTime.Now, DateTime.Now.AddHours(3), 2);
+            if (statusButton == 1)
+            {
+                MessageBox.Show("Tạo lịch công việc thành công","Thông báo");
+            }
+            else if (statusButton == 2)
+            {
+                MessageBox.Show("Thay đổi thành công","Thông báo");
+            }
+            
+            this.Close();
         }
 
         private void FrmSelectStaff_Load(object sender, EventArgs e)
@@ -57,6 +80,11 @@ namespace GUI
                 selectStaffView = new DataView(selectStaffTable);
                 dgvSelectStaff.DataSource = selectStaffView;
             }
+        }
+
+        private void btnCancelSelect_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
     }

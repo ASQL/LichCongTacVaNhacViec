@@ -125,6 +125,7 @@
             this.btnCancelSelect.TabIndex = 3;
             this.btnCancelSelect.Text = "Cancel";
             this.btnCancelSelect.UseVisualStyleBackColor = true;
+            this.btnCancelSelect.Click += new System.EventHandler(this.btnCancelSelect_Click);
             // 
             // FrmSelectStaff
             // 
