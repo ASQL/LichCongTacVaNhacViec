@@ -124,10 +124,9 @@ namespace DAL
             return DBConnection.Instance.ExecuteSelectQuery("GetStaffByFaculty", parameters, CommandType.StoredProcedure);
         }
 
-        public bool InsertNotification(string staffId,string notiId,string scheId,DateTime sendTime,DateTime endTime,int soLan)
+        public bool InsertNotification(string notiId,string scheId,DateTime sendTime,DateTime endTime,int soLan)
         {
             SqlParameter[] parameters = new SqlParameter[]{
-                new SqlParameter("@MaCanBo",staffId),
                 new SqlParameter("@MaThongBao",notiId),
                 new SqlParameter("@MaLich",scheId),
                 new SqlParameter("@ThoiGianGui",sendTime),
@@ -135,6 +134,15 @@ namespace DAL
                 new SqlParameter("@SoLan",soLan)
             };
             return DBConnection.Instance.ExecuteQuery("InsertNotification", parameters, CommandType.StoredProcedure);
+        }
+
+        public bool SendNotification(String notificationID, String staffID)
+        {
+            SqlParameter[] parameters = new SqlParameter[]{
+                new SqlParameter("@MaThongBao",notificationID),
+                new SqlParameter("@MaCanBo",staffID)
+            };
+            return DBConnection.Instance.ExecuteQuery("insert into NhanThongBao values(@MaCanBo,@MaThongBao,1)", parameters, CommandType.Text);
         }
     }
 }

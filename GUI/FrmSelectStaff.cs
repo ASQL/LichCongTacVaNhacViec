@@ -46,8 +46,12 @@ namespace GUI
         private void btnSelectStaff_Click(object sender, EventArgs e)
         {
             string notiId = CodeAutomaticID.NextID(scheduleBus.getLastIdNotiBus(), "TB");
-            string staffSelectId = dgvSelectStaff.CurrentRow.Cells["MaCanBo"].Value.ToString();
-            scheduleBus.InsertNotification(staffSelectId, notiId, schedule.ID, DateTime.Now, DateTime.Now.AddHours(3), 2);
+            scheduleBus.InsertNotification(notiId, schedule.ID, DateTime.Now, DateTime.Now.AddHours(3), 2);
+            for(int i=0;i<dgvSelectStaff.SelectedRows.Count;i++)
+            {
+                string staffSelectId = dgvSelectStaff.SelectedRows[i].Cells["MaCanBo"].Value.ToString();
+                scheduleBus.SendNotifcation(notiId, staffSelectId);
+            }
             if (statusButton == 1)
             {
                 MessageBox.Show("Tạo lịch công việc thành công","Thông báo");
@@ -56,7 +60,6 @@ namespace GUI
             {
                 MessageBox.Show("Thay đổi thành công","Thông báo");
             }
-            
             this.Close();
         }
 
@@ -86,6 +89,5 @@ namespace GUI
         {
             this.Close();
         }
-
     }
 }

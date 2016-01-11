@@ -18,6 +18,7 @@ namespace GUI
         private Staff staff;
         private DataTable notificationTable;
         private DataView notificationView;
+        public bool isChanged;
 
         public FrmNotificationManagement()
         {
@@ -29,33 +30,28 @@ namespace GUI
             InitializeComponent();
             this.staff = staff;
             notificationBUS = new NotificationBUS();
+            isChanged = false;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            try
+            if (dgvNotification.SelectedRows.Count > 0)
             {
-                if (dgvNotification.SelectedRows.Count > 0)
+                DialogResult dr = MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Xác nhận", MessageBoxButtons.YesNo);
+                if (dr == DialogResult.Yes)
                 {
-                    DialogResult dr = MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Xác nhận", MessageBoxButtons.YesNo);
-                    if (dr == DialogResult.Yes)
+                    for (int i = 0; i < dgvNotification.SelectedRows.Count; i++)
                     {
-                        for(int i=0;i<dgvNotification.SelectedRows.Count;i++)
-                        {
-                            DataRow row = notificationTable.Rows[dgvNotification.SelectedRows[0].Index];
-                            notificationBUS.Delete(GetNotification(row).ID, staff.ID);
-                        }
-                        LoadData();
+                        DataRow row = notificationTable.Rows[dgvNotification.SelectedRows[0].Index];
+                        notificationBUS.Delete(GetNotification(row).ID, staff.ID);
                     }
-                }
-                else
-                {
-                    throw new Exception("Bạn chưa chọn thông báo để xóa!");
+                    LoadData();
+                    isChanged = true;
                 }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                throw new Exception("Bạn chưa chọn thông báo để xóa!");
             }
         }
 
@@ -109,8 +105,8 @@ namespace GUI
             notification.ReceiveTime = Convert.ToDateTime(row[2].ToString());
             notification.Deadline = Convert.ToDateTime(row[3].ToString());
             notification.Times = Convert.ToInt16(row[4].ToString());
-            notification.Status = Convert.ToInt16(row[5].ToString());
-            notification.Title = row[6].ToString();
+            notification.Status = Convert.ToInt16(row[6].ToString());
+            notification.Title = row[5].ToString();
             return notification;
         }
 
@@ -162,6 +158,7 @@ namespace GUI
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             LoadData();
+            isChanged = true;
         }
     }
 }

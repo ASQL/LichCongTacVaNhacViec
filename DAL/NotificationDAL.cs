@@ -30,8 +30,7 @@ namespace DAL
                 new SqlParameter("@MaThongBao",notification.ID),
                 new SqlParameter("@ThoiGianGui",notification.ReceiveTime),
                 new SqlParameter("@ThoiHan",notification.Deadline),
-                new SqlParameter("@SoLan",notification.Times),
-                new SqlParameter("@TrangThai",notification.Status)
+                new SqlParameter("@SoLan",notification.Times)
             };
             return DBConnection.Instance.ExecuteQuery("UpdateNotification",parameters,CommandType.StoredProcedure);
         }
@@ -64,10 +63,10 @@ namespace DAL
         public DataTable GetNotificationByStaffId(String id)
         {
             SqlParameter[] parameters = new SqlParameter[]{
-                new SqlParameter("@StaffId",id)
+                new SqlParameter("@MaCanBo",id)
             };
-            String command = "select tb.* from ThongBao tb, NhanThongBao ntb where MaCanBo=@StaffId and ntb.MaThongBao=tb.MaThongBao";
-            return DBConnection.Instance.ExecuteSelectQuery(command, parameters, CommandType.Text);
+            String command = "GetNotificationByStaffID";
+            return DBConnection.Instance.ExecuteSelectQuery(command, parameters, CommandType.StoredProcedure);
         }
 
         public bool SendResponse(String detail, DateTime sendTime, DateTime deadline, String notificationID, int times)
@@ -80,6 +79,16 @@ namespace DAL
                 new SqlParameter("@SoLan",times)
             };
             return DBConnection.Instance.ExecuteQuery("SendResponse", parameters, CommandType.StoredProcedure);
+        }
+
+        public bool UpdateNotificationStatus(String staffID, String notificationID, int status)
+        {
+            SqlParameter[] parameters = new SqlParameter[]{
+                new SqlParameter("@MaCanBo",staffID),
+                new SqlParameter("@MaThongBao",notificationID),
+                new SqlParameter("@TrangThai",status)
+            };
+            return DBConnection.Instance.ExecuteQuery("UpdateNotificationStatus", parameters, CommandType.StoredProcedure);
         }
     }
 }

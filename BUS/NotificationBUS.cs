@@ -47,8 +47,8 @@ namespace BUS
                     notification.ReceiveTime = Convert.ToDateTime(dt.Rows[i][2].ToString());
                     notification.Deadline = Convert.ToDateTime(dt.Rows[i][3].ToString());
                     notification.Times = Convert.ToInt16(dt.Rows[i][4].ToString());
-                    notification.Status = Convert.ToInt16(dt.Rows[i][5].ToString());
-                    notification.Title = dt.Rows[i][6].ToString();
+                    notification.Status = Convert.ToInt16(dt.Rows[i][6].ToString());
+                    notification.Title = dt.Rows[i][5].ToString();
                     notifications.Add(notification);
                 }
                 return notifications;
@@ -70,8 +70,8 @@ namespace BUS
                 notification.ReceiveTime = Convert.ToDateTime(dt.Rows[0][2].ToString());
                 notification.Deadline = Convert.ToDateTime(dt.Rows[0][3].ToString());
                 notification.Times = Convert.ToInt16(dt.Rows[0][4].ToString());
-                notification.Status = Convert.ToInt16(dt.Rows[0][5].ToString());
-                notification.Title = dt.Rows[0][6].ToString();
+                notification.Status = Convert.ToInt16(dt.Rows[0][6].ToString());
+                notification.Title = dt.Rows[0][5].ToString();
             }
             return notification;
         }
@@ -91,6 +91,11 @@ namespace BUS
             {
                 throw ex;
             }
+        }
+
+        public bool UpdateNotificationStatus(String staffID, String notificationID, int status)
+        {
+            return notificationDAL.UpdateNotificationStatus(staffID, notificationID, status);
         }
     }
 }

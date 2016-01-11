@@ -81,9 +81,14 @@ namespace BUS
             return scheduleDAL.getStaffinFaculty(faculty);
         }
 
-        public bool InsertNotification(string staffId, string notiId, string scheId, DateTime sendTime, DateTime endTime, int soLan)
+        public bool InsertNotification(string notiId, string scheId, DateTime sendTime, DateTime endTime, int soLan)
         {
-            return scheduleDAL.InsertNotification(staffId, notiId, scheId, sendTime, endTime, soLan);
+            return scheduleDAL.InsertNotification(notiId, scheId, sendTime, endTime, soLan);
+        }
+
+        public bool SendNotifcation(String notificationID, String staffID)
+        {
+            return scheduleDAL.SendNotification(notificationID, staffID);
         }
     }
 }

@@ -137,6 +137,26 @@ namespace GUI
                         }
                     }
                 }
+                if(frmNotificationManagement!=null)
+                {
+                    if(frmNotificationManagement.isChanged)
+                    {
+                        if (notifications != null)
+                        {
+                            notifications.RemoveRange(0, notifications.Count);
+                        }
+                        notifications = notificationBUS.GetLastTenRowsByStaffId(staff.ID);
+                        if (notifications.Count > 0)
+                        {
+                            SetList(notifications);
+                            if (notifications[0].Status == 1)
+                            {
+                                ShowNotificationDialog(notifications[0], 1);
+                            }
+                        }
+                        frmNotificationManagement.isChanged = false;
+                    }
+                }
                 timer1++;
                 Thread.Sleep(1000);
             }
@@ -198,6 +218,7 @@ namespace GUI
                             });
                         }
                         notificationBUS.Update(notification);
+                        notificationBUS.UpdateNotificationStatus(staff.ID, notification.ID, notification.Status);
                         if (notifications != null)
                         {
                             notifications.RemoveRange(0, notifications.Count);

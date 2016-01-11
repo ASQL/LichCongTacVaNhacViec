@@ -59,6 +59,7 @@ namespace GUI
                 {
                     notification.Status = 2;
                     notificationBUS.Update(notification);
+                    notificationBUS.UpdateNotificationStatus(staff.ID, notification.ID, notification.Status);
                     String detail = "Nhân viên " + staff.Name + " nhận công việc.";
                     notificationBUS.SendResponse(detail, DateTime.Now, DateTime.Now.AddHours(3), notification.ID, 3);
                     scheduleBUS.AcceptWork(staff.ID, notification.ID);
